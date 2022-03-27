@@ -115,10 +115,12 @@ importWallet = function (newWif = false, raw = false) {
     // RIPEMD160 hash
     const pubKeyHashRipemd160 = ripemd160(pubKeyHashing.getHash(0));
     // Network Encoding
-    const pubKeyHashNetworkLen = pubKeyHashRipemd160.length + 1;
+    const pubKeyHashNetworkLen = pubKeyHashRipemd160.length + 3;
     const pubKeyHashNetwork = new Uint8Array(pubKeyHashNetworkLen);
-    pubKeyHashNetwork[0] = PUBKEY_ADDRESS;
-    writeToUint8(pubKeyHashNetwork, pubKeyHashRipemd160, 1);
+    pubKeyHashNetwork[0] = PUBKEY_ADDRESS[0];
+    pubKeyHashNetwork[1] = PUBKEY_ADDRESS[1];
+    pubKeyHashNetwork[2] = PUBKEY_ADDRESS[2];
+    writeToUint8(pubKeyHashNetwork, pubKeyHashRipemd160, 3);
     // Double SHA-256 hash
     const pubKeyHashingS = new jsSHA(0, 0, { "numRounds": 2 });
     pubKeyHashingS.update(pubKeyHashNetwork);
@@ -247,10 +249,13 @@ generateWallet = async function (noUI = false) {
     // RIPEMD160 hash
     const pubKeyHashRipemd160 = ripemd160(pubKeyHashing.getHash(0));
     // Network Encoding
-    const pubKeyHashNetworkLen = pubKeyHashRipemd160.length + 1;
+    const pubKeyHashNetworkLen = pubKeyHashRipemd160.length + 3;
     const pubKeyHashNetwork = new Uint8Array(pubKeyHashNetworkLen);
-    pubKeyHashNetwork[0] = PUBKEY_ADDRESS;
-    writeToUint8(pubKeyHashNetwork, pubKeyHashRipemd160, 1);
+    pubKeyHashNetwork[0] = PUBKEY_ADDRESS[0];
+    pubKeyHashNetwork[1] = PUBKEY_ADDRESS[1];
+    pubKeyHashNetwork[2] = PUBKEY_ADDRESS[2];
+    console.log("AGUAAAAAAAAAAAAAAAAAAAA ", pubKeyHashNetwork);
+    writeToUint8(pubKeyHashNetwork, pubKeyHashRipemd160, 3);
     // Double SHA-256 hash
     const pubKeyHashingS = new jsSHA(0, 0, { "numRounds": 2 });
     pubKeyHashingS.update(pubKeyHashNetwork);
