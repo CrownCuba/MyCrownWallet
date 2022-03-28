@@ -254,7 +254,6 @@ generateWallet = async function (noUI = false) {
     pubKeyHashNetwork[0] = PUBKEY_ADDRESS[0];
     pubKeyHashNetwork[1] = PUBKEY_ADDRESS[1];
     pubKeyHashNetwork[2] = PUBKEY_ADDRESS[2];
-    console.log("AGUAAAAAAAAAAAAAAAAAAAA ", pubKeyHashNetwork);
     writeToUint8(pubKeyHashNetwork, pubKeyHashRipemd160, 3);
     // Double SHA-256 hash
     const pubKeyHashingS = new jsSHA(0, 0, { "numRounds": 2 });
