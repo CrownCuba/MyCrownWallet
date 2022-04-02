@@ -82,10 +82,10 @@
 
             <!-- MAIN NAVBAR -->
             <ul class="navbar-nav mr-auto ptr">
-              <li class="nav-item"><a id='start' class="nav-link tablinks" onclick="openTab(event, 'home')">Intro</a></li>
-              <li class="nav-item"><a class="nav-link tablinks" onclick="openTab(event, 'keypair')">Dashboard</a></li>
+              <li class="nav-item"><a id='start' class="nav-link tablinks" onclick="openTab(event, 'home')">Dashboard</a></li>
+              <!-- <li class="nav-item"><a class="nav-link tablinks" onclick="openTab(event, 'keypair')">Dashboard</a></li> -->
               <li class="nav-item"><a id="txTab" class="nav-link tablinks" onclick="openTab(event, 'Transaction')">Send</a></li>
-              <li class="nav-item"><a id="txTab" class="nav-link tablinks" onclick="openTab(event, 'StakingTab')">Stake</a></li>
+              <!-- <li class="nav-item"><a id="txTab" class="nav-link tablinks" onclick="openTab(event, 'StakingTab')">Stake</a></li> -->
               <li class="nav-item"><a class="nav-link tablinks" onclick="openTab(event, 'Settings');">Settings</a></li>
             </ul>
 
@@ -137,113 +137,10 @@
       <div class="container">
         <div class="row no-gutters">
           <div class='col-md-12 rm-pd'>
-            <div id="home" class="tabcontent">
-
-              <!-- Crown TITLE SECTION -->
-              <div class="col-md-12 title-section float-left rm-pd">
-                  <h1 class="pivx-bold-title center-text"><span>Welcome to</span> My Crown Wallet!</h1>
-              </div>
-              <!-- // Crown TITLE SECTION -->
-
-              <!-- Crown FEATURE SECTION -->
-              <div class="col-md-12 features-section float-left rm-pd intro-page">
-
-                <!-- Crown FEATURE -->
-                <div class="col-md-6 float-left pivx-feature-father">
-                  <div class="col-md-11 pivx-feature-interior">
-
-                    <div class="col-md-12 feature-icon">
-                      <img src="https://pivx.org/build/images/content/img_governance.png" alt="Crown Governance"
-                      >
-                    </div>
-
-                    <h4>Be your own Bank!</h4>
-                    <h5>
-                      MyCrownWallet has <b>no custody</b> over your funds. You are in full ownership of your keys and your PIV.
-                    </h5>
-                    <span onclick="window.location.href='https://forum.pivx.org/threads/mypivxwallet-an-easy-open-source-self-sovereign-pivx-wallet.873/'" class="purple-icon-link ptr">
-                      Know more<span class="link-icon link-icon-suffix"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                    </span>
-                  </div>
-                </div>
-                <!-- // Crown FEATURE -->
-
-                <!-- Crown FEATURE -->
-                <div class="col-md-6 float-left pivx-feature-father">
-                  <div class="col-md-11 pivx-feature-interior">
-
-                    <div class="col-md-12 feature-icon">
-                      <img src="https://pivx.org/build/images/content/img_pos.png" alt="Crown Proof of Stake (PoS)">
-                    </div>
-
-                    <h4>Universal and Portable</h4>
-                    <h5>
-                      You can generate cryptographically-secure addresses with your browser and hardware.
-                    </h5>
-                    <span onclick="window.location.href='https://forum.pivx.org/threads/mypivxwallet-an-easy-open-source-self-sovereign-pivx-wallet.873/'" class="purple-icon-link ptr">
-                      Know more<span class="link-icon link-icon-suffix"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                    </span>
-                  </div>
-                </div>
-                <!-- // Crown FEATURE -->
-
-                <!-- Crown FEATURE -->
-                <div class="col-md-6 float-left pivx-feature-father">
-                  <div class="col-md-11 pivx-feature-interior">
-
-                    <div class="col-md-12 feature-icon">
-                      <img src="https://pivx.org/build/images/content/img_privacy.png" alt="Crown Privacy" class="smaller-feature">
-                    </div>
-
-                    <h4>Don't trust, verify!</h4>
-                    <h5>
-                      MyCrownWallet is completely open-source, available on the Crown Labs github.
-                    </h5>
-                    <span onclick="window.location.href='https://forum.pivx.org/threads/mypivxwallet-an-easy-open-source-self-sovereign-pivx-wallet.873/'" class="purple-icon-link ptr">
-                      Know more<span class="link-icon link-icon-suffix"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                    </span>
-                  </div>
-                </div>
-                <!-- // Crown FEATURE -->
-
-                <!-- Crown FEATURE -->
-                <div class="col-md-6 float-left pivx-feature-father">
-                  <div class="col-md-11 pivx-feature-interior">
-
-                    <div class="col-md-12 feature-icon">
-                      <img src="https://pivx.org/build/images/content/img_slider_bars.png" alt="Crown Bar Chart" class="smaller-feature">
-                    </div>
-
-                    <h4>For the community</h4>
-                    <h5>
-                      MyCrownWallet is built with love without any fees, privacy intrusions or advertising.
-                    </h5>
-                    <span onclick="window.location.href='https://forum.pivx.org/threads/mypivxwallet-an-easy-open-source-self-sovereign-pivx-wallet.873/'" class="purple-icon-link ptr">
-                      Know more<span class="link-icon link-icon-suffix"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                    </span>
-                  </div>
-                </div>
-                <!-- // Crown FEATURE -->
-
-              </div>
-              <!-- // Crown FEATURE SECTION -->
-
-              <!-- Crown DONATION SECTION -->
-              <div class="col-md-12 donation-section float-left rm-pd text-center">
-                  <button class="pivx-button-big" onclick="openDonatePage()">
-                            <span class="buttoni-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70"><path d="M3.497 25.717C1.401 25.588 0 23.847 0 21.753v-2.535c0-.775.149-1.593.925-1.593h22.719c2.173 0 3.941 1.861 3.941 4.034 0 2.174-1.769 3.988-3.941 3.988l-20.207.048c-.02 0 .08.023.06.022z"></path><path d="M5.229 69.625C4.455 69.625 4 68.494 4 67.719V38.661c0-1.911 1.447-3.731 3.258-3.989.175-.029.285-.047.483-.047h21.525c7.137 0 12.751-5.86 12.751-13.027 0-7.096-5.528-12.841-12.586-13.177-.002 0-.671.016-1.41.016l-20.335.066C5.529 8.373 4 6.652 4 4.558V2.023C4 1.247 4.407.625 5.183.625h24.059c11.57 0 20.654 9.546 20.706 21.104 0 9.378-6.307 17.727-15.337 20.311-1.622.445-3.122.705-4.735.778L12 42.842v22.485c0 2.156-2.141 4.298-4.235 4.298H5.229z"></path></svg></span>
-                            <span class="buttoni-text">Donate - Pay with MyCrownWallet</span>
-                            <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                  </button>
-
-              </div>
-              <!-- // Crown DONATION SECTION -->
-
-            </div>
 
 
             <!-- KEYPAIR SECTION -->
-            <div id="keypair" class="tabcontent">
+            <div id="home" class="tabcontent">
 
               <!-- Crown TITLE SECTION -->
               <div class="col-md-12 title-section rm-pd">
@@ -258,9 +155,15 @@
                 <div class="container">
 
                   <div class="coinstat-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M15.059 43.898h-3.196a.827.827 0 000 1.653h3.196a.826.826 0 100-1.653zM38.851 8.781a.826.826 0 00-1.42.577v4.015H13.847a.827.827 0 100 1.654h24.411c.457 0 .826-.37.826-.827v-2.805l5.548 5.707-5.548 5.389V19.27a.826.826 0 00-.826-.826H15.5a.826.826 0 000 1.653h9.419v3.881a.826.826 0 101.653 0v-3.881h10.859v4.35a.828.828 0 001.402.594l7.545-7.328a.826.826 0 00.016-1.169l-7.543-7.763zM9.99 13.372a.827.827 0 100 1.654h.661a.827.827 0 000-1.654H9.99zm38.792 12.895h-.771a.826.826 0 100 1.653h.771a.827.827 0 000-1.653z"></path><path d="M45.035 26.267H20.68V21.89a.827.827 0 00-1.403-.593l-7.543 7.327a.827.827 0 00-.016 1.169l7.543 7.76a.824.824 0 00.904.19.829.829 0 00.516-.767v-3.988h4.239v6.943H1.988V7.641h22.931v3.941a.826.826 0 001.653 0v-6.01A4.667 4.667 0 0021.91.91H4.997A4.667 4.667 0 00.335 5.572v34.803a.81.81 0 00-.099.383c0 .14.038.27.099.384v3.445a4.668 4.668 0 004.662 4.663h16.912a4.668 4.668 0 004.662-4.663V32.988h14.276a.826.826 0 100-1.653H19.853a.827.827 0 00-.827.827v2.779l-5.548-5.708 5.548-5.388v3.248c0 .456.37.827.827.827h25.182a.826.826 0 000-1.653zM4.997 2.563h16.912c1.66 0 3.009 1.35 3.009 3.009v.416H1.988v-.416a3.013 3.013 0 013.009-3.009zm16.912 45.034H4.997a3.013 3.013 0 01-3.009-3.01v-3.002h22.931v3.002a3.014 3.014 0 01-3.01 3.01z"></path></svg>
-                  </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="150.000000pt" height="150.000000pt" viewBox="0 0 150.000000 150.000000" preserveAspectRatio="xMidYMid meet">
 
+                      <g transform="translate(0.000000,150.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                      <path d="M268 1406 c-71 -19 -156 -75 -198 -131 -70 -92 -71 -102 -68 -540 l3 -390 26 -56 c34 -72 96 -134 168 -168 l56 -26 535 -3 c577 -2 563 -3 604 51 18 25 22 47 26 165 l5 137 38 3 37 3 0 214 0 214 -37 3 -38 3 -5 142 c-5 133 -6 143 -30 168 -13 14 -42 31 -65 38 -38 12 -40 14 -42 57 -3 52 -26 88 -74 112 -31 16 -74 18 -464 17 -312 0 -443 -4 -477 -13z m923 -87 c13 -13 19 -30 17 -47 l-3 -27 -422 -3 -423 -2 0 -40 0 -40 471 0 c305 0 477 -4 490 -10 17 -10 19 -22 19 -140 l0 -130 -105 0 c-73 0 -117 -5 -143 -16 -145 -60 -177 -251 -61 -361 49 -45 77 -53 200 -53 l109 0 0 -129 c0 -98 -3 -131 -14 -140 -10 -9 -154 -11 -543 -9 l-530 3 -55 37 c-45 29 -62 49 -87 99 l-31 62 0 376 c1 401 3 419 51 479 32 40 110 90 156 101 21 5 228 9 461 10 413 1 422 1 443 -20z m229 -659 l0 -140 -117 0 c-145 1 -187 10 -227 50 -28 28 -31 36 -31 96 0 65 1 67 39 100 l39 34 149 0 148 0 0 -140z"/>
+                      <path d="M1140 737 c-54 -27 -61 -99 -13 -137 84 -66 183 56 102 124 -34 29 -52 32 -89 13z"/>
+                      </g>
+                      </svg>
+                  </div>
+                  
                   <div class="col-md-12 dashboard-title">
                     <h3 class="pivx-bold-title-smaller"><span>Create a</span>New Wallet</h3>
                     <p>This will create a new, random Crown wallet that will contain no initial funds, you may transfer to-and-from this wallet with ease.</p>
@@ -268,7 +171,7 @@
 
 
                   <button class="pivx-button-big" onclick="generateWallet()">
-                              <span class="buttoni-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70"><path d="M3.497 25.717C1.401 25.588 0 23.847 0 21.753v-2.535c0-.775.149-1.593.925-1.593h22.719c2.173 0 3.941 1.861 3.941 4.034 0 2.174-1.769 3.988-3.941 3.988l-20.207.048c-.02 0 .08.023.06.022z"></path><path d="M5.229 69.625C4.455 69.625 4 68.494 4 67.719V38.661c0-1.911 1.447-3.731 3.258-3.989.175-.029.285-.047.483-.047h21.525c7.137 0 12.751-5.86 12.751-13.027 0-7.096-5.528-12.841-12.586-13.177-.002 0-.671.016-1.41.016l-20.335.066C5.529 8.373 4 6.652 4 4.558V2.023C4 1.247 4.407.625 5.183.625h24.059c11.57 0 20.654 9.546 20.706 21.104 0 9.378-6.307 17.727-15.337 20.311-1.622.445-3.122.705-4.735.778L12 42.842v22.485c0 2.156-2.141 4.298-4.235 4.298H5.229z"></path></svg></span>
+                              
                               <span class="buttoni-text">Create A New Wallet</span>
                               <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
                     </button>
@@ -351,33 +254,6 @@
 
               <!-- // WALLET FUNCTIONALITIES -->
 
-              <!-- GENERATE VANITY WALLET -->
-              <div id='generateVanityWallet' class="dashboard-item">
-                <div class="container">
-
-                  <div class="coinstat-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M45.936 22.101c-1.321-4.06-2.976-6.808-3.045-6.922a.754.754 0 00-1.39.506c.003.016.193 1.655-1.762 3.08-.671.49-1.896.378-2.569-.234-.828-.753-.744-2.081.237-3.738C40.95 8.818 35.582 1.034 35.352.707a.757.757 0 00-1.369.35c-.002.022-.264 2.274-1.601 4.499-1.747 2.906-4.447 4.417-8.026 4.491-5.056.105-8.143 1.798-9.843 3.201-1.885 1.556-2.542 3.111-2.569 3.176a.755.755 0 00.525 1.022c1.916.45 2.546 1.966 2.503 3.127-.038 1.027-.636 2.314-2.201 2.563-1.112.176-1.965-.002-2.535-.532-1.144-1.063-.975-3.236-.973-3.256a.755.755 0 00-1.232-.65c-4.492 3.706-6.797 10.581-5.735 17.109.468 2.875 1.59 5.545 3.247 7.724 1.854 2.437 4.333 4.266 7.372 5.434a.754.754 0 10.542-1.408C6.292 44.8 4.323 38.86 3.787 35.563a18.666 18.666 0 01.711-8.828c.754-2.28 1.901-4.258 3.354-5.803.154.907.518 1.99 1.352 2.77.928.866 2.208 1.176 3.805.922 2.001-.317 3.396-1.923 3.472-3.997.06-1.631-.775-3.485-2.732-4.342.97-1.445 3.855-4.591 10.639-4.732 5.173-.107 7.922-2.926 9.317-5.272.666-1.12 1.09-2.23 1.356-3.125.397.746.855 1.708 1.234 2.79 1.136 3.235 1.072 5.953-.187 8.077-1.94 3.273-.615 5.022.044 5.622 1.212 1.102 3.219 1.252 4.475.337.998-.728 1.583-1.517 1.924-2.229a37.385 37.385 0 011.962 4.852c1.156 3.565 2.237 8.886.819 13.997-1.352 4.873-4.731 8.762-10.044 11.56a.755.755 0 00.704 1.335c5.698-3.001 9.331-7.206 10.796-12.5 1.519-5.484.375-11.128-.852-14.896z"></path><path d="M40.953 11.943a.754.754 0 101.459-.376l-.294-1.143a.756.756 0 00-1.462.377l.297 1.142zM25.17 33.984a.848.848 0 000-1.694h-6.537a.117.117 0 00-.117.118v.729c0 .454.358.825.805.853l5.849-.006z"></path><path d="M26.779 27.343h-6.921a.117.117 0 00-.118.117v.73a.86.86 0 00.805.853l5.883-.015c.219 0 .419.007.419.007a4.106 4.106 0 013.896 4.103 4.083 4.083 0 01-3.957 4.08h-6.192c-.041 0-.083 0-.124.009a.838.838 0 00-.715.775v8.363c0 .066.055.115.117.115h.729a.859.859 0 00.854-.807v-6.651c0-.057.055-.105.109-.105l5.346-.008a6.014 6.014 0 001.334-.213 5.788 5.788 0 004.205-5.567 5.81 5.81 0 00-5.67-5.786z"></path></svg>
-                  </div>
-
-                  <div class="col-md-12 dashboard-title">
-                    <h3 class="pivx-bold-title" style="font-size:38px;"><span>Create a new</span>Vanity Wallet</h3>
-                    <span class="badge badge-warning">Experimental</span>
-                    <p>This will create a Crown wallet with a customized prefix of your choosing, requiring more processing power to generate such addresses, it is recommended to generate a prefix of less than 6 characters, for example: "DAD" is a possible address prefix.</p>
-                  </div>
-
-
-                  <input style="display:none;" type="text" id='prefix' placeholder="Address Prefix" onkeyup="checkVanity()">
-
-                  <button class="pivx-button-big" onclick="generateVanityWallet()">
-                              <span class="buttoni-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70"><path d="M3.497 25.717C1.401 25.588 0 23.847 0 21.753v-2.535c0-.775.149-1.593.925-1.593h22.719c2.173 0 3.941 1.861 3.941 4.034 0 2.174-1.769 3.988-3.941 3.988l-20.207.048c-.02 0 .08.023.06.022z"></path><path d="M5.229 69.625C4.455 69.625 4 68.494 4 67.719V38.661c0-1.911 1.447-3.731 3.258-3.989.175-.029.285-.047.483-.047h21.525c7.137 0 12.751-5.86 12.751-13.027 0-7.096-5.528-12.841-12.586-13.177-.002 0-.671.016-1.41.016l-20.335.066C5.529 8.373 4 6.652 4 4.558V2.023C4 1.247 4.407.625 5.183.625h24.059c11.57 0 20.654 9.546 20.706 21.104 0 9.378-6.307 17.727-15.337 20.311-1.622.445-3.122.705-4.735.778L12 42.842v22.485c0 2.156-2.141 4.298-4.235 4.298H5.229z"></path></svg></span>
-
-                              <span class="buttoni-text" id="vanButtonText">Create A Vanity Wallet</span>
-
-                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                    </button>
-                </div>
-              </div>
-              <!-- // GENERATE VANITY WALLET -->
               <br>
 
               <!-- ACCESS WALLET -->
@@ -409,10 +285,7 @@
                   <!-- // IMPORT WALLET -->
 
                   <button class="pivx-button-big" onclick="toggleWallet()">
-                              <span class="buttoni-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70"><path d="M3.497 25.717C1.401 25.588 0 23.847 0 21.753v-2.535c0-.775.149-1.593.925-1.593h22.719c2.173 0 3.941 1.861 3.941 4.034 0 2.174-1.769 3.988-3.941 3.988l-20.207.048c-.02 0 .08.023.06.022z"></path><path d="M5.229 69.625C4.455 69.625 4 68.494 4 67.719V38.661c0-1.911 1.447-3.731 3.258-3.989.175-.029.285-.047.483-.047h21.525c7.137 0 12.751-5.86 12.751-13.027 0-7.096-5.528-12.841-12.586-13.177-.002 0-.671.016-1.41.016l-20.335.066C5.529 8.373 4 6.652 4 4.558V2.023C4 1.247 4.407.625 5.183.625h24.059c11.57 0 20.654 9.546 20.706 21.104 0 9.378-6.307 17.727-15.337 20.311-1.622.445-3.122.705-4.735.778L12 42.842v22.485c0 2.156-2.141 4.298-4.235 4.298H5.229z"></path></svg></span>
-
                               <span class="buttoni-text" id='wToggle'>Access My Wallet</span>
-
                               <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
                     </button>
                 </div>
@@ -425,54 +298,6 @@
 
             </div>
             <!-- // KEYPAIR SECTION -->
-
-            <div id="StakingTab" class="tabcontent">
-              <!-- STAKING FEATURES -->
-              <p id="info" class="minor-notif-subtext"><b>New Feature!</b><br>Please be aware MPW Cold Staking is a new, slightly experimental feature, it may be unstable, and is currently slow. Please have patience when using this feature, and wait for block confirmations before actions and balances are shown on-screen.</p>
-              <div class="add-frame">
-              <div class="staking-banner-top">
-                <div id="staking-rectangle" class="col-md-4">
-                    <div id="pivx-price-box">
-                        <div id="icon-box-piv">
-                            <div id="piv-price" class="staking-piv-icon"></div>
-                        </div>
-                        <div id="piv-price-amount">
-                            <p id="guiBalanceBoxStaking"><b id="guiBalanceStaking">~</b> PIV</p>
-                        </div>
-                    </div>
-                    <div id="staking-box">
-                      <h3 id="stake-title" class="noselect">Staking &nbsp;&nbsp;<span id="balanceReloadStaking" class="reload noselect" onclick="refreshChainData()">&#x21bb;</span></h3>
-                    </div>
-                </div>
-            </div>
-              <br>
-              <div class="staking-banner-bottom">
-                <div class="stake-box large-box col-md-4">
-                  <h5 id="availToDelegate" class="stake-balances">Available: 0 PIV</h5>
-                  <textarea id="delegateAmount" class="stake-input form-control private-key-area"></textarea>
-                  <div class="button-padd">
-                      <button class="pivx-button-big" onclick="delegateGUI()">
-                                  <span class="buttoni-icon"><i class="far fa-eye fa-tiny-margin"></i></span>
-                                  <span class="buttoni-text">Delegate</span>
-                                  <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                        </button>
-                 </div>
-                </div>
-                <div class="stake-box large-box col-md-4">
-                  <h5 id="availToUndelegate" class="stake-balances">Staking: 0 PIV</h5>
-                  <textarea id="undelegateAmount" class="stake-input form-control private-key-area"></textarea>
-                  <div class="button-padd">
-                      <button class="pivx-button-big" onclick="undelegateGUI()">
-                                  <span class="buttoni-icon"><i class="far fa-eye fa-tiny-margin"></i></span>
-                                  <span class="buttoni-text">Undelegate</span>
-                                  <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
-                        </button>
-                 </div>
-                </div>
-              </div>
-              <!-- STAKING FEATURES -->
-              </div>
-            </div>
 
 
 
