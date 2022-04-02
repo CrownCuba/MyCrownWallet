@@ -10,7 +10,7 @@ p, span, h1, h2, h3, h4, h5, h6, li, a, input, label, button {
 
 body {
     background-color: #00102c;
-    color: #f2f8fa;
+    color: #00102c;
 }
 
 textarea, input {
@@ -32,7 +32,6 @@ button {
     border-style: solid;
     border-width: 1px;
     margin: 1px;
-    border-color: #7300ff;
     text-align: center;
     font-size: 16px;
     outline: 0;
@@ -272,11 +271,11 @@ button:active {
 
         /* Create an active/current tablink class */
         .tab button.active {
-            background-color: #b088ff !important;
+            background-color: rgba(255, 255, 255, 0.75) !important;
         }
 
     .active {
-        color: #b088ff !important;
+        color: #29b2c8 !important;
     }
 
     /* Style the tab content */
@@ -639,8 +638,8 @@ button:active {
         bottom: 0;
         width: 100%;
         padding: 10px;
-        border-top: solid #521186 1px;
-        background-color: #2b09508c;
+        border-top: solid aliceblue 1px;
+        background-color: #021639;
     }
 
         .footer {
@@ -675,7 +674,7 @@ button:active {
         font-family: Montserrat, sans-serif;
         height: auto;
         padding: 14px 30px;
-        background: linear-gradient(183deg, #9621ff, #7d21ff);
+        background: #021639;
         line-height: 1.25em;
         font: 15px Montserrat, sans-serif !important;
         letter-spacing: .025em;
@@ -703,7 +702,7 @@ button:active {
     }
 
     .home-hero {
-        background: #00102c;
+        background: #fff;
     }
 
     .title-section {
@@ -898,7 +897,7 @@ button:active {
 
     /*PIVX DASHBOARD*/
     .dashboard-item {
-        background: rgba(43, 9, 80, .75);
+        background: aliceblue;
         border-radius: 6px;
         padding: 40px;
         padding-right: 15%;
