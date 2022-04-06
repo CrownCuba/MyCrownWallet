@@ -1049,10 +1049,13 @@
 
       // Update identicon
       domIdenticon.dataset.jdenticonValue = publicKeyForNetwork;
+      console.log(publicKeyForNetwork)
       jdenticon();
       // Play reload anim
       domBalanceReload.className += " playAnim";
+      /*
       domBalanceReloadStaking.className += " playAnim";
+      */
       // Fetch block count + UTXOs
       getBlockCount();
     }

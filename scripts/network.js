@@ -1,9 +1,10 @@
 if (networkEnabled) {
   var getBlockCount = function() {
     var request = new XMLHttpRequest();
-    request.open('GET', "https://stakecubecoin.net/pivx/blocks", true);
+    request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=getblockcount", true);
+    console.log(request.response)
     request.onerror = function () {
-      createAlert("warning", "stakecube api is down");
+      createAlert("warning", "cryptoid api is down");
       networkEnabled = false;
       document.getElementById('Network').innerHTML = "";
     }
@@ -24,7 +25,8 @@ if (networkEnabled) {
 
   var getUnspentTransactions = function () {
     var request = new XMLHttpRequest()
-    request.open('GET', "https://chainz.cryptoid.info/pivx/api.dws?q=unspent&active=" + publicKeyForNetwork + "&key=fb4fd0981734", true)
+    console.log(publicKeyForNetwork);
+    request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=unspent&active=" + publicKeyForNetwork + "&key=fb4fd0981734", true)
     request.onload = function () {
       const data = JSON.parse(this.response);
       cachedUTXOs = [];
