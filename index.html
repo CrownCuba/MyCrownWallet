@@ -531,13 +531,13 @@
 
     function getBalance(updateGUI = false) {
       const nBalance = cachedUTXOs.reduce((a, b) => a + b.sats, 0);
-
+      
       // Update the GUI too, if chosen
       if (updateGUI) {
         // Set the balance, and adjust font-size for large balance strings
         const nLen = (nBalance / COIN).toString().length;
-        domGuiBalance.innerText = (nBalance / COIN).toFixed(nLen >= 4 ? 0 : 2);
-        domAvailToDelegate.innerText = "Available: ~" + (nBalance / COIN).toFixed(2) + " PIV";
+        domGuiBalance.innerText = (nBalance / COIN);
+        //domAvailToDelegate.innerText = "Available: ~" + (nBalance / COIN).toFixed(2) + " PIV";
       }
 
       return nBalance;
@@ -643,14 +643,14 @@
 
     function hideAllWalletOptions() {
       // Hide and Reset the Vanity address input
-      domPrefix.value = PUBKEY_PREFIX;
-      domPrefix.style.display = 'none';
+     // domPrefix.value = PUBKEY_PREFIX;
+      //domPrefix.style.display = 'none';
       // Hide 'generate wallet'
       domGenerateWallet.style.display = 'none';
       // Hide 'import wallet'
       domImportWallet.style.display = 'none';
       // Hide 'vanity wallet'
-      domGenVanityWallet.style.display = 'none';
+     /// domGenVanityWallet.style.display = 'none';
       // Hide 'access wallet'
       domAccessWallet.style.display = 'none';
     }
@@ -658,8 +658,8 @@
     function toggleWallet() {
       var toggle = domWalletToggle.innerHTML;
       // Hide and Reset the Vanity address input
-      domPrefix.value = PUBKEY_PREFIX;
-      domPrefix.style.display = 'none';
+      //domPrefix.value = PUBKEY_PREFIX;
+      //domPrefix.style.display = 'none';
       if (toggle === "Access My Wallet") {
         if (!hasEncryptedWallet()) {
           // No local wallet found
@@ -1088,7 +1088,7 @@
     });
 
     setInterval(refreshChainData, 15000);
-    domPrefix.value = PUBKEY_PREFIX;
+    //domPrefix.value = PUBKEY_PREFIX;
   </script>
 
 </body>

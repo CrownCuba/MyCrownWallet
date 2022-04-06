@@ -2,7 +2,6 @@ if (networkEnabled) {
   var getBlockCount = function() {
     var request = new XMLHttpRequest();
     request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=getblockcount", true);
-    console.log(request.response)
     request.onerror = function () {
       createAlert("warning", "cryptoid api is down");
       networkEnabled = false;
@@ -12,7 +11,7 @@ if (networkEnabled) {
       const data = Number(this.response);
       // If the block count has changed, refresh all of our data!
       domBalanceReload.className = domBalanceReload.className.replace(/ playAnim/g, "");
-      domBalanceReloadStaking.className = domBalanceReloadStaking.className.replace(/ playAnim/g, "");
+      //domBalanceReloadStaking.className = domBalanceReloadStaking.className.replace(/ playAnim/g, "");
       if (data > cachedBlockCount) {
         console.log("New block detected! " + cachedBlockCount + " --> " + data);
         if (publicKeyForNetwork)
@@ -21,6 +20,7 @@ if (networkEnabled) {
       cachedBlockCount = data;
     }
     request.send();
+    console.log(request.response)
   }
 
   var getUnspentTransactions = function () {
@@ -43,12 +43,13 @@ if (networkEnabled) {
           'script': cUTXO.script
         }));
         // Update the GUI with the newly cached UTXO set
-        getBalance(true);
+        console.log(getBalance(true));
+        
       }
     }
     request.send();
     // In parallel, fetch Cold Staking UTXOs
-    getDelegatedUTXOs();
+    //getDelegatedUTXOs();
   }
 
   var arrUTXOsToSearch = [];
