@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang='en'>
 
@@ -1091,3 +1092,1102 @@
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+  <!-- Primary Meta Tags -->
+  <title>My Crown Wallet</title>
+  <meta name="title" content="My Crown Wallet">
+  <meta name="description" content="The wallet of the future - Receive, Send, Stake and Exchange using a completely decentralized, open-source, battle-hardened Crown wallet.">
+  <meta name="keywords" content="web,wallet,webwallet,crypto,cryptocurrency,opensource,oss,pivx,staking,masternodes,exchange,swap,decentralized">
+
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:url" content="https://stakecubecoin.net/pivx/">
+  <meta property="og:title" content="My Crown Wallet">
+  <meta property="og:description" content="The wallet of the future - Receive, Send, Stake and Exchange using a completely decentralized, open-source, battle-hardened Crown wallet.">
+  <meta property="og:image" content="https://stakecubecoin.net/pivx/assets/logo_opaque-dark-bg.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://stakecubecoin.net/pivx/">
+  <meta property="twitter:title" content="My Crown Wallet">
+  <meta property="twitter:description" content="The wallet of the future - Receive, Send, Stake and Exchange using a completely decentralized, open-source, battle-hardened Crown wallet.">
+  <meta property="twitter:image" content="https://stakecubecoin.net/pivx/assets/logo_opaque-dark-bg.png">
+
+  <!-- Colour Theme -->
+  <meta name="msapplication-TileColor" content="#470e75">
+  <meta name="theme-color" content="#470e75">
+
+  <link rel="icon" type="image/png" href="https://stakecubecoin.net/assets/logo_opaque-dark-bg.png">
+  <link rel="canonical" href="https://stakecubecoin.net/pivx">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap-4.5.0/css/bootstrap.min.css">
+  <link href="assets/fontawesome/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/style/style.css">
+  <script type="text/javascript" src="assets/bootstrap-4.5.0/js/jquery.js"></script>
+  <script type="text/javascript" src="assets/bootstrap-4.5.0/js/bootstrap.js"></script>
+  <script type="text/javascript" src="scripts/libs/jdenticon.min.js"></script>
+
+  <!--- IMPORTANT: CHAIN PARAMS BELOW, DO NOT EDIT UNLESS YOU'RE ABSOLUTELY CERTAIN YOU KNOW WHAT YOU'RE DOING  --->
+  <script>
+      // In most BTC-derived coins, the below parameters can be found in the 'src/chainparams.cpp' Mainnet configuration.
+      // These below params share the same names as the CPP params, so finding and editing these is easy-peasy!
+
+      /* chainparams */
+      const PUBKEY_PREFIX  = "CRW";
+      const PUBKEY_ADDRESS = [1, 117, 7];
+      const SECRET_KEY     = 128;
+
+      const COIN = 1e8;
+
+      // Cool stuff
+      const donationAddress = "DLabsktzGMnsK5K9uRTMCF6NoYNY6ET4Bb";
+  </script>
+</head>
+
+<body>
+  <div id="page-container" class="home-hero">
+    <div id="content-wrap">
+
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbarSpecial">
+        <div class="container">
+          <img onclick="playMusic()" class="nav-logo navbar-brand noselect" src='assets/logo.png' alt="Crown" style="object-fit:contain;
+                                  width:8%;
+                                  height:8%;">
+          <button id="navbarToggler" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse noselect" id="navbarNav">
+
+            <!-- MAIN NAVBAR -->
+            <ul class="navbar-nav mr-auto ptr">
+              <li class="nav-item"><a id='start' class="nav-link tablinks" onclick="openTab(event, 'home')">Dashboard</a></li>
+              <!-- <li class="nav-item"><a class="nav-link tablinks" onclick="openTab(event, 'keypair')">Dashboard</a></li> -->
+              <li class="nav-item"><a id="txTab" class="nav-link tablinks" onclick="openTab(event, 'Transaction')">Send</a></li>
+              <!-- <li class="nav-item"><a id="txTab" class="nav-link tablinks" onclick="openTab(event, 'StakingTab')">Stake</a></li> -->
+              <li class="nav-item"><a class="nav-link tablinks" onclick="openTab(event, 'Settings');">Settings</a></li>
+            </ul>
+
+            <!-- SIDE NAVBAR -->
+            <div class="form-inline my-2 my-lg-0">
+              <ul class="navbar-nav mr-auto ptr">
+                <li class="nav-item"><a class="nav-link tablinks active" id="Network"></a></li>
+                <li class="nav-item"><a class="nav-link tablinks active" id="Debug"></a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </nav>
+      <!-- // NAVBAR -->
+
+
+      <!-- // WARNING MESSAGE -->
+      <div class="warning-message" id='outdated'>
+        <div class="container">
+          <p>WARNING: your version is outdated,
+          please update to the newest stable version at the <a href='https://github.com/Crown-Labs/MyCrownWallet/releases'>MyCrownWallet Github</a>
+          </p>
+        </div>
+      </div>
+      <!-- // WARNING MESSAGE -->
+
+
+      <!-- // QR MODAL -->
+      <div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="qrModalLabel">Address QR</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body center-text">
+              <p id="ModalQRLabel" class="modal-label"></p>
+              <div id="ModalQR" class="auto-fit"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <!-- // QR MODAL -->
+
+      <div class="container">
+        <div class="row no-gutters">
+          <div class='col-md-12 rm-pd'>
+
+
+            <!-- KEYPAIR SECTION -->
+            <div id="home" class="tabcontent">
+
+              <!-- Crown TITLE SECTION -->
+              <div class="col-md-12 title-section rm-pd">
+                  <h3 class="pivx-bold-title center-text">Dashboard</h3>
+              </div>
+              <!-- // Crown TITLE SECTION -->
+
+
+
+              <!-- GENERATE WALLET -->
+              <div id='generateWallet' class="dashboard-item">
+                <div class="container">
+
+                  <div class="coinstat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="150.000000pt" height="150.000000pt" viewBox="0 0 150.000000 150.000000" preserveAspectRatio="xMidYMid meet">
+
+                      <g transform="translate(0.000000,150.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                      <path d="M268 1406 c-71 -19 -156 -75 -198 -131 -70 -92 -71 -102 -68 -540 l3 -390 26 -56 c34 -72 96 -134 168 -168 l56 -26 535 -3 c577 -2 563 -3 604 51 18 25 22 47 26 165 l5 137 38 3 37 3 0 214 0 214 -37 3 -38 3 -5 142 c-5 133 -6 143 -30 168 -13 14 -42 31 -65 38 -38 12 -40 14 -42 57 -3 52 -26 88 -74 112 -31 16 -74 18 -464 17 -312 0 -443 -4 -477 -13z m923 -87 c13 -13 19 -30 17 -47 l-3 -27 -422 -3 -423 -2 0 -40 0 -40 471 0 c305 0 477 -4 490 -10 17 -10 19 -22 19 -140 l0 -130 -105 0 c-73 0 -117 -5 -143 -16 -145 -60 -177 -251 -61 -361 49 -45 77 -53 200 -53 l109 0 0 -129 c0 -98 -3 -131 -14 -140 -10 -9 -154 -11 -543 -9 l-530 3 -55 37 c-45 29 -62 49 -87 99 l-31 62 0 376 c1 401 3 419 51 479 32 40 110 90 156 101 21 5 228 9 461 10 413 1 422 1 443 -20z m229 -659 l0 -140 -117 0 c-145 1 -187 10 -227 50 -28 28 -31 36 -31 96 0 65 1 67 39 100 l39 34 149 0 148 0 0 -140z"/>
+                      <path d="M1140 737 c-54 -27 -61 -99 -13 -137 84 -66 183 56 102 124 -34 29 -52 32 -89 13z"/>
+                      </g>
+                      </svg>
+                  </div>
+                  
+                  <div class="col-md-12 dashboard-title">
+                    <h3 class="pivx-bold-title-smaller"><span>Create a</span>New Wallet</h3>
+                    <p>This will create a new, random Crown wallet that will contain no initial funds, you may transfer to-and-from this wallet with ease.</p>
+                  </div>
+
+
+                  <button class="pivx-button-big" onclick="generateWallet()">
+                              
+                              <span class="buttoni-text">Create A New Wallet</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                    </button>
+                </div>
+              </div>
+              <!-- // GENERATE WALLET -->
+              <br>
+
+              <!-- WALLET FUNCTIONALITIES -->
+
+              <!-- WARNING -->
+             <div id='genKeyWarning' style='display: none;' class="alert alert-danger col-md-12" role="alert">
+                <div>
+                     <p><b>WARNING:</b> if you don't save your private key you will lose access to your funds!<br>
+                  Would you like to encrypt & save your wallet in your browser?<br></p>
+                </div>
+                  <button class="pivx-button-big" onclick="encryptWallet()">
+                              <span class="buttoni-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M85.967 10.65l-32.15-9.481a13.466 13.466 0 00-7.632 0l-32.15 9.48C11.661 11.351 10 13.567 10 16.042v26.623c0 12.321 3.67 24.186 10.609 34.31 6.774 9.885 16.204 17.49 27.264 21.99a5.612 5.612 0 004.251 0c11.061-4.5 20.491-12.104 27.266-21.99C86.329 66.85 90 54.985 90 42.664V16.042a5.656 5.656 0 00-4.033-5.392zM69 68.522C69 70.907 67.03 72 64.584 72H34.092C31.646 72 30 70.907 30 68.522v-23.49C30 42.647 31.646 41 34.092 41H37v-9.828C37 24.524 41.354 18.5 49.406 18.5 57.37 18.5 62 24.066 62 31.172V41h2.584C67.03 41 69 42.647 69 45.032v23.49zM58 41v-9.828c0-4.671-3.708-8.472-8.5-8.472-4.791 0-8.5 3.8-8.5 8.472V41h17z"></path></svg></span>
+
+                              <span class="buttoni-text">Encrypt Wallet</span>
+
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                    </button>
+
+              </div>
+              <!-- // WARNING -->
+              <br>
+
+              <!-- WALLET FEATURES -->
+              <div id="guiWallet" style="display: none;">
+                <div id="bcg-wallet-box">
+                    <div id="headline-balance">
+                        <div id="balance-box" class="large-box">
+                            <div id="window-icon-piv">
+                                <div id="piv-ring"></div>
+                                <div id="number-piv">
+                                    <p id="guiBalanceBox"><b id="guiBalance">~</b> PIV</p>
+                                </div>
+                            </div>
+                            <div id="bal-title">
+                                <h3 class="noselect balance-title">Balance &nbsp;&nbsp;<span id="balanceReload" class="reload noselect" onclick="refreshChainData()">&#x21bb;</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                      <!-- WALLET FEATURE -->
+                    <div id="big-frame-address">
+                        <div id="address-box" class="large-box">
+                            <div id="title-address-box">
+                                <h3 class="noselect addr-title">Address</h3>
+                            </div>
+                            <div id="box-info-address">
+                                <div id="ring">
+                                    <canvas id="identicon" class="innerShadow" width="65" height="65" data-jdenticon-value=""></canvas>
+                                </div>
+                                <div id="address-info">
+                                    <b id="guiAddress">~</b>
+                                    <b id="guiQRButton">
+                                        <i data-toggle="modal" data-target="#qrModal" class="fas fa-qrcode fa-stacked-ptr"></i>
+                                        <i onclick="toClipboard('guiAddress', 'guiAddressCopy')" id="guiAddressCopy" class="fas fa-clipboard fa-stacked-ptr"></i>
+                                    </b>
+                                </div>
+                            </div>
+                            <div id="pubkey-padd">
+                                <div id="pubkey-box" class="col-md-4 desktop-pubkey">
+                                  <div id="PrivateQR" class="margin-padded-qr" style="display: none;"><img src="" width="82" height="82"></div>
+                                  <div id="PublicQR" class="margin-padded-qr" style="display: block;"><img src="" width="82" height="82"></div>
+                                  <textarea id="PrivateTxt" style="display: none;" disabled="" class="form-control private-key-area"></textarea>
+                                  <button class="pivx-button-big" onclick="toggleKeyView()">
+                                      <span class="buttoni-icon"><i class="far fa-eye fa-tiny-margin"></i></span>
+                                      <span class="buttoni-text" id="guiViewKey">Pubkey QR</span>
+                                      <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                                  </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- WALLET FEATURES -->
+
+              <!-- // WALLET FUNCTIONALITIES -->
+
+              <br>
+
+              <!-- ACCESS WALLET -->
+              <div id="accessWallet" class="dashboard-item" style="margin-bottom:100px;">
+                <div class="container">
+
+                  <div class="coinstat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 59.998 59.998" style="enable-background:new 0 0 59.998 59.998;" xml:space="preserve">
+                      <g>
+                        <path d="M59.457,35.985c-0.695-0.969-1.55-1.866-3.074-1.866c-1.14,0-2.589,0.506-4.904,1.726l-8.623,5.272   c-1.409,0.75-4.515,0.9-6.447,0.93c0.453-0.945,0.25-2.069-0.603-3.343c-0.791-1.18-1.868-2.118-3.118-2.759   C34.76,34.261,36,31.754,36,28.999c0-4.962-4.037-9-9-9s-9,4.038-9,9c0,1.481,0.368,2.895,1.027,4.156   c-0.013-0.009-0.027-0.017-0.039-0.027C15.423,30.441,9.439,30.045,7,30v-3.029H0v32.028h7v-3h13c2.04,0,4.098-0.156,6.116-0.462   l12.963-1.971c0.472-0.006,0.95-0.062,1.376-0.158c1.194-0.168,2.335-0.738,3.302-1.65l15.181-11.823   C60.118,38.958,60.346,37.222,59.457,35.985z M27,23.999c2.757,0,5,2.243,5,5s-2.243,5-5,5s-5-2.243-5-5S24.243,23.999,27,23.999z    M57.686,38.376L42.489,50.21l-0.077,0.067c-0.67,0.641-1.443,1.039-2.334,1.168c-0.364,0.081-0.727,0.122-1.078,0.122   l-13.185,1.993c-1.919,0.292-3.876,0.44-5.815,0.44H7v-22c3.646,0.066,8.239,0.808,10.784,2.726   c1.336,1.008,2.937,1.692,4.645,2.02l0.015,0.009l0.19,0.033c0.01,0.002,0.019,0.002,0.029,0.004   c0.328,0.056,0.66,0.101,0.995,0.13c0.011,0.001,0.022,0.003,0.032,0.004c0.34,0.029,0.682,0.046,1.027,0.046h3.9   c0.55,0,1.1,0.065,1.634,0.193l0.064,0.016c1.573,0.39,2.94,1.315,3.827,2.638c0.412,0.615,0.582,1.13,0.455,1.377   c-0.189,0.368-1.155,0.763-2.841,0.815c-0.382-0.006-0.731-0.01-1.04-0.01H21c-3.131,0-5,1.495-5,4c0,0.552,0.447,1,1,1   s1-0.448,1-1c0-0.495,0-2,3-2h9.69c0.083,0.005,0.315,0.017,0.649,0.017c0.131,0,0.276-0.002,0.387-0.006l0.713,0.012   c0.84,0.016,1.79,0.033,2.779,0.033c4.407,0,7.052-0.361,8.629-1.202l8.618-5.27c1.901-0.999,3.146-1.464,3.918-1.464   c0.49,0,0.815,0.149,1.449,1.032C58.11,37.539,58.036,38.085,57.686,38.376z"/>
+                        <path d="M42,18.999c4.963,0,9-4.038,9-9s-4.037-9-9-9s-9,4.038-9,9S37.037,18.999,42,18.999z M42,4.999c2.757,0,5,2.243,5,5   s-2.243,5-5,5s-5-2.243-5-5S39.243,4.999,42,4.999z"/>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      <g>
+                      </g>
+                      </svg>
+                  </div>
+
+                  <div class="col-md-12 dashboard-title">
+                    <h3 class="pivx-bold-title-smaller"><span>Go to</span>My Wallet</h3>
+                    <p>This will import a Crown wallet that you hold via it's private key, loading the address and pulling your existing balance, if any, from an explorer node.
+                      <br>
+                      <span style="opacity: 0.75; font-size: small;">*Note: MPW developers can NOT access your wallet, this wallet runs purely in YOUR browser using JavaScript.</span>
+                    </p>
+                  </div>
+
+                  <!-- IMPORT WALLET -->
+                  <input class="hide-element" type="text" id="clipboard">
+                  <div id='importWallet' style='display: none;'>
+                    <input type="text" id='privateKey' placeholder="Private Key">
+                    <button class="pivx-button-big" onclick="importWallet()">
+                                  <span class="buttoni-icon"><i class="fas fa-file-upload fa-tiny-margin"></i></span>
+                                  <span class="buttoni-text">Import Wallet</span>
+                                  <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                        </button>
+                  </div>
+                  <!-- // IMPORT WALLET -->
+
+                  <button class="pivx-button-big" onclick="toggleWallet()">
+                              <span class="buttoni-text" id='wToggle'>Access My Wallet</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                    </button>
+                </div>
+              </div>
+              <!-- // ACESSS WALLET -->
+              <br>
+
+
+              <br>
+
+            </div>
+            <!-- // KEYPAIR SECTION -->
+
+
+
+            <div id="Transaction" class="tabcontent">
+
+              <!-- Crown TITLE SECTION -->
+              <div class="col-md-12 title-section float-left rm-pd">
+                  <h3 class="pivx-bold-title center-text"><span>Create a</span> Transaction</h3>
+              </div>
+              <br>
+              <!-- // Crown TITLE SECTION -->
+
+              <div id='errorNotice' class="col-md-12 float-left"></div>
+              <div class="col-md-12">
+                <p id="comunication" class="center-text">Please <b>AVOID</b> sending to Shielded or Cold Staking addresses using this wallet - this functionality is currently unsupported.</p>
+              </div>
+              <div class='max-width' style='clear:both;'>
+                <div id="simpleTransactionsDropdown" class="bold-trans" onclick='toggleDropDown("simpleTransactions")'>Create Simple Transactions<span
+                    style='float:right;'>▼</span></div>
+                <div id='simpleTransactions' style='display: block'>
+                  <br>
+                  <label>Address</label><br>
+                  <input class="center-text" style="width: 100%; font-family: monospace;" type="text" id="address1s">
+                  <br>
+                  <label>Amount</label><br>
+                  <input class="center-text" type="number" min="0" id="value1s">
+                  <div id="reqDescDisplay" style="display: none;">
+                    <label>Description (from the merchant)</label><br>
+                    <input class="center-text" type="text" disabled id="reqDesc">
+                  </div>
+                  <br>
+                  <div id='HumanReadable'></div>
+                  <br>
+                  <button class="pivx-button-big" onclick="createSimpleTransation()">
+                              <span class="buttoni-icon"><i class="fas fa-paper-plane fa-tiny-margin"></i></span>
+                              <span class="buttoni-text" id="genIt">Send Transaction</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                    </button>
+                </div>
+                <div id='transactionFinal'></div>
+              </div>
+              <br>
+              <div class='max-width' style='clear:both;'>
+                <div onclick='toggleDropDown("advTransactions")' class="bold-trans">Create Manual Transactions<span
+                    style='float:right;'>▼</span></div>
+                <div id='advTransactions' style='display:none'>
+                  <br>
+                  <h3>Inputs</h3>
+                  <label>Trx Hash</label><br>
+                  <input type="text" id="prevTrxHash">
+                  <label>Index</label><br>
+                  <input type="text" id="index">
+                  <label>Script</label><br>
+                  <input type="text" id="script"><br><br>
+                  <h3>Outputs</h3>
+                  <label>Output Address 1</label><br>
+                  <input type="text" id="address1">
+                  <label>Amount</label><br>
+                  <input type="text" id="value1">
+                  <br />
+                  <label>Output address 2</label><br>
+                  <input type="text" id="address2">
+                  <label>Amount</label><br>
+                  <input type="text" id="value2"><br><br>
+                  <h3>WIF Key</h3>
+                  <label>key</label><br>
+                  <input type="text" id="wif">
+                  <br /><br />
+                  <p style="padding: 5px 0 15px;"><b>WARNING:</b> ANY FUNDS NOT ALLOCATED WILL BE USED AS FEES</p>
+                  <button class="pivx-button-big" onclick="createRawTransaction()">
+                              <span class="buttoni-icon"><i class="fas fa-paper-plane fa-tiny-margin"></i></span>
+                              <span class="buttoni-text">Create Raw Signed Transction</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+                    </button>
+                  <br /><br /><br />
+                  <h4 id="signed-raw">Signed Raw Transaction</h4>
+                  <textarea rows="15" cols="70" id="rawTrx"></textarea>
+                  <p>Don't understand how this works? <a target='_blank'
+                      href='https://github.com/Crown-Labs/MyCrownWallet#transaction'>Tutorial Here</a></p>
+                  <p>Advanced Details: <br>locktime is set to 0, sequence is set to max. SIGHASH_ALL option is chosen
+                      for signing raw Transaction.</p>
+                </div>
+              </div>
+            </div>
+            <div id="Settings" class="tabcontent">
+              <form action="javascript:setExplorer()">
+                <label for="explorer">Choose an explorer:</label><br>
+                <select id="explorer" class="form-control" name="explorer">
+                  <option value="cryptoid">https://chainz.cryptoid.info/pivx</option>
+                  <option value="custom">custom (In Development)</option>
+                </select>
+                <br>
+                <button id="submit-button" class="pivx-button-big" type="submit">
+                              <span class="buttoni-icon"><i class="fas fa-paper-plane fa-tiny-margin"></i></span>
+                              <span class="buttoni-text">Submit</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+              </button>
+              </form>
+              <br>
+
+              <button class="pivx-button-big" onclick="toggleDebug()">
+                              <span class="buttoni-icon"><i class="fas fa-bug fa-tiny-margin"></i></span>
+                              <span class="buttoni-text">Toggle Debug Mode</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+              </button>
+              <button class="pivx-button-big" onclick="toggleNetwork()">
+                              <span class="buttoni-icon"><i class="fas fa-network-wired fa-tiny-margin"></i></span>
+                              <span class="buttoni-text">Toggle Networking Mode</span>
+                              <span class="buttoni-arrow"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M23.328 16.707L13.121 26.914a.5.5 0 01-.707 0l-2.828-2.828a.5.5 0 010-.707L16.964 16 9.586 8.621a.5.5 0 010-.707l2.828-2.828a.5.5 0 01.707 0l10.207 10.207a1 1 0 010 1.414z"></path></svg></span>
+              </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+      Alert
+    -->
+    <div class="alertPositioning">
+    </div>
+    <footer id="foot">
+        <div class="footer">
+          <div id='dcfooter'></div>
+        </div>
+    </footer>
+  </div>
+  <script type="text/javascript" src="scripts/libs/aes-gcm.js"></script>
+  <script type="text/javascript" src="scripts/libs/crypto-min.js"></script>
+  <script type="text/javascript" src="scripts/libs/crypto-sha256.js"></script>
+  <script type="text/javascript" src="scripts/libs/crypto-sha256-hmac.js"></script>
+  <script type="text/javascript" src="scripts/libs/ripemd160.js"></script>
+  <script type="text/javascript" src="scripts/libs/jsbn.js"></script>
+  <script type="text/javascript" src="scripts/libs/ellipticcurve.js"></script>
+  <script type="text/javascript" src="scripts/libs/script.js"></script>
+  <script type="text/javascript" src="scripts/libs/qrcode.js"></script>
+  <script type="text/javascript" src="scripts/libs/sha256.js"></script>
+  <script type="text/javascript" src="scripts/libs/bn.js"></script>
+  <script type="text/javascript" src="scripts/libs/secp256k1.js"></script>
+  <script type="text/javascript" src="scripts/libs/noble-secp256k1.js"></script>
+
+  <script type="text/javascript" src="scripts/settings.js"></script>
+  <script type="text/javascript" src="scripts/misc.js"></script>
+  <script type="text/javascript" src="scripts/wallet.js"></script>
+  <script type="text/javascript" src="scripts/network.js"></script>
+  <script type="text/javascript" src="scripts/bitTrx.js"></script>
+
+  <script>
+    // WALLET STATE DATA
+    let cachedUTXOs = [];
+    let arrDelegatedUTXOs = [];
+    let cachedBlockCount = 0;
+    let cachedColdStakeAddr = "";
+
+    const nSecp256k1 = nobleSecp256k1.default;
+
+    // Cached DOM elements
+    const domStart = document.getElementById("start");
+    const domNavbarToggler = document.getElementById("navbarToggler");
+    const domGuiStaking = document.getElementById('guiStaking');
+    const domGuiWallet = document.getElementById('guiWallet');
+    const domGuiBalance = document.getElementById("guiBalance");
+    const domGuiBalanceBox = document.getElementById("guiBalanceBox");
+    const domBalanceReload = document.getElementById("balanceReload");
+    const domBalanceReloadStaking = document.getElementById("balanceReloadStaking");
+    const domGuiBalanceStaking = document.getElementById("guiBalanceStaking");
+    const domGuiBalanceBoxStaking = document.getElementById("guiBalanceBoxStaking");
+    const domTxTab = document.getElementById("txTab");
+    const domSimpleTXs = document.getElementById("simpleTransactions");
+    const domSimpleTXsDropdown = document.getElementById("simpleTransactionsDropdown");
+    const domAddress1s = document.getElementById("address1s");
+    const domValue1s = document.getElementById("value1s");
+    const domGuiViewKey = document.getElementById('guiViewKey');
+    const domPrivateTxt = document.getElementById('PrivateTxt');
+    const domPrivateQr = document.getElementById('PrivateQR');
+    const domPublicQr = document.getElementById('PublicQR');
+    const domModalQR = document.getElementById('ModalQR');
+    const domModalQrLabel = document.getElementById('ModalQRLabel');
+    const domPrefix = document.getElementById('prefix');
+    const domWalletToggle = document.getElementById("wToggle");
+    const domGenerateWallet = document.getElementById('generateWallet');
+    const domImportWallet = document.getElementById('importWallet');
+    const domGenVanityWallet = document.getElementById('generateVanityWallet');
+    const domAccessWallet = document.getElementById('accessWallet');
+    const domVanityUiButtonTxt = document.getElementById("vanButtonText");
+    const domGenKeyWarning = document.getElementById('genKeyWarning');
+    const domGuiAddress = document.getElementById('guiAddress');
+    const domGenIt = document.getElementById("genIt");
+    const domHumanReadable = document.getElementById("HumanReadable");
+    const domReqDesc = document.getElementById('reqDesc');
+    const domReqDisplay = document.getElementById('reqDescDisplay');
+    const domIdenticon = document.getElementById("identicon");
+    const domPrivKey = document.getElementById("privateKey");
+    const domAvailToDelegate = document.getElementById('availToDelegate');
+    const domAvailToUndelegate = document.getElementById('availToUndelegate');
+
+    function getBalance(updateGUI = false) {
+      const nBalance = cachedUTXOs.reduce((a, b) => a + b.sats, 0);
+      
+      // Update the GUI too, if chosen
+      if (updateGUI) {
+        // Set the balance, and adjust font-size for large balance strings
+        const nLen = (nBalance / COIN).toString().length;
+        domGuiBalance.innerText = (nBalance / COIN);
+        //domAvailToDelegate.innerText = "Available: ~" + (nBalance / COIN).toFixed(2) + " PIV";
+      }
+
+      return nBalance;
+    }
+
+    function getStakingBalance(updateGUI = false) {
+      const nBalance = arrDelegatedUTXOs.reduce((a, b) => a + b.sats, 0);
+
+      if (updateGUI) {
+        // Set the balance, and adjust font-size for large balance strings
+        domGuiBalanceStaking.innerText = Math.floor(nBalance / COIN);
+        domGuiBalanceBoxStaking.style.fontSize = Math.floor(nBalance / COIN).toString().length >= 4 ? "large" : "x-large";
+        domAvailToUndelegate.innerText = "Staking: ~" + (nBalance / COIN).toFixed(2) + " PIV";
+      }
+
+      return nBalance;
+    }
+
+    // URL-Query request processing
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let requestTo;
+    let requestAmount;
+    // Check for a payment request
+    if (urlParams.has('pay') && urlParams.has('amount')) {
+      requestTo     = urlParams.get('pay');
+      requestAmount = parseFloat(urlParams.get('amount'));
+      console.log(requestTo + " " + requestAmount);
+      // We have our payment request info, wait until the page is fully loaded then display the payment request via .onload
+    }
+
+    let audio = null;
+    function playMusic() {
+      if (audio === null) {
+        audio = new Audio('assets/music.mp3');
+        audio.play();
+        startDisco();
+      } else
+      if (audio.paused) {
+        audio.play();
+        startDisco();
+      } else
+      if (audio.ended) {
+        audio.play();
+        startDisco();
+      } else {
+        audio.pause();
+        stopDisco();
+      }
+    }
+
+    function startDisco() {
+      for (const domImg of document.getElementsByTagName('img')) {
+        domImg.classList.add("discoFilter");
+      }
+    }
+
+    function stopDisco() {
+      for (const domImg of document.getElementsByTagName('img')) {
+          domImg.classList.remove("discoFilter");
+        }
+    }
+
+    function toClipboard(element, caller) {
+      let nCopy = document.getElementById(element);
+      caller = document.getElementById(caller);
+      let nClipboard = document.getElementById('clipboard');
+      nClipboard.value = nCopy.value || nCopy.innerHTML;
+      nClipboard.select();
+      nClipboard.setSelectionRange(0, 99999);
+      if (!navigator.clipboard) {
+        document.execCommand("copy");
+      } else {
+        navigator.clipboard.writeText(nCopy.innerHTML);
+      }
+      
+      caller.className += " fa-check";
+      caller.className = caller.className.replace(/ fa-clipboard/g, '');
+      caller.style.cursor = "default";
+      setTimeout(() => {
+        caller.className += " fa-clipboard";
+        caller.className = caller.className.replace(/ fa-check/g, '');
+        caller.style.cursor = "pointer";
+      }, 1000);
+    }
+
+    function openDonatePage() {
+      domTxTab.click();
+      if (domSimpleTXs.style.display === 'none')
+        domSimpleTXsDropdown.click();
+      domAddress1s.value = donationAddress;
+      domValue1s.focus();
+    }
+
+    let viewPrivKey = false;
+    function toggleKeyView() {
+      viewPrivKey = !viewPrivKey;
+      domGuiViewKey.innerHTML     = viewPrivKey  ? 'Privkey QR' : 'Pubkey QR';
+      domPrivateTxt.style.display = viewPrivKey  ? 'block' : 'none';
+      domPrivateQr.style.display  = viewPrivKey  ? 'block' : 'none';
+      domPublicQr.style.display   = !viewPrivKey ? 'block' : 'none';
+    }
+
+    function hideAllWalletOptions() {
+      // Hide and Reset the Vanity address input
+     // domPrefix.value = PUBKEY_PREFIX;
+      //domPrefix.style.display = 'none';
+      // Hide 'generate wallet'
+      domGenerateWallet.style.display = 'none';
+      // Hide 'import wallet'
+      domImportWallet.style.display = 'none';
+      // Hide 'vanity wallet'
+     /// domGenVanityWallet.style.display = 'none';
+      // Hide 'access wallet'
+      domAccessWallet.style.display = 'none';
+    }
+
+    function toggleWallet() {
+      var toggle = domWalletToggle.innerHTML;
+      // Hide and Reset the Vanity address input
+      //domPrefix.value = PUBKEY_PREFIX;
+      //domPrefix.style.display = 'none';
+      if (toggle === "Access My Wallet") {
+        if (!hasEncryptedWallet()) {
+          // No local wallet found
+            domGenerateWallet.style.display = 'none';
+            domImportWallet.style.display = 'block';
+            domWalletToggle.innerHTML = "Create A New Wallet";
+            return;
+        }
+        // We have a local wallet! Display the decryption prompt
+        decryptWallet().then(hasWallet => {
+          if (hasWallet) {
+            hideAllWalletOptions();
+          } else {
+            domGenerateWallet.style.display = 'block';
+            domImportWallet.style.display = 'none';
+            domWalletToggle.innerHTML = "Access My Wallet";
+          }
+        }).catch(e => {
+          domGenerateWallet.style.display = 'none';
+          domImportWallet.style.display = 'block';
+          domWalletToggle.innerHTML = "Create A New Wallet";
+        });
+      } else {
+        domGenerateWallet.style.display = 'block';
+        domImportWallet.style.display = 'none';
+        domWalletToggle.innerHTML = "Access My Wallet";
+      }
+    }
+
+    function checkVanity() {
+      // Loosely check if the vanity address is valid
+      if (!domPrefix.value.length) return domPrefix.value = PUBKEY_PREFIX;
+      if (!domPrefix.value.startsWith(PUBKEY_PREFIX)) {
+        // Prefix doesnt match, splice it into the string
+        domPrefix.value = PUBKEY_PREFIX + domPrefix.value.substr(1);
+      }
+    }
+
+    let isVanityGenerating = false;
+    const arrWorkers = [];
+    let vanUiUpdater;
+
+    function stopSearch() {
+      isVanityGenerating = false;
+      for (let thread of arrWorkers) {
+        thread.terminate();
+      }
+      while (arrWorkers.length) arrWorkers.pop();
+      domPrefix.disabled = false;
+      domVanityUiButtonTxt.innerText = 'Create A Vanity Wallet';
+      clearInterval(vanUiUpdater);
+    }
+
+    async function generateVanityWallet() {
+      if (isVanityGenerating) return stopSearch();
+      if (typeof(Worker) === "undefined") return alert('This browser doesn\'t support Web Workers (multi-threaded JS), unfortunately you cannot generate Vanity wallets!');
+      // Generate a vanity address with the given prefix
+      if (domPrefix.value.length === 0 || domPrefix.style.display === 'none') {
+        // No prefix, display the intro!
+        domPrefix.placeholder = 'Custom Prefix (' + PUBKEY_PREFIX + ' ...)';
+        domPrefix.style.display = 'block';
+        domGenKeyWarning.style.display = 'none';
+        domPrivateTxt.innerHTML = "~";
+        domGuiAddress.innerHTML = "~";
+      } else {
+        // Ensure the input is base58 compatible
+        for (const char of domPrefix.value) {
+          if (!MAP.includes(char)) return alert("The character '" + char + "' is unsupported in addresses! (Not Base58 compatible)");
+        }
+        // We also don't want users to be mining addresses for years... so cap the letters to four until the generator is more optimized
+        if (domPrefix.value.length > 6) return alert("This is a long name! This would take a LONG time to find, please choose a shorter name!");
+        isVanityGenerating = true;
+        domPrefix.disabled = true;
+        // Cache a lowercase equivilent for lower-entropy comparisons (a case-insensitive search is ALOT faster!) and strip accidental spaces
+        const nInsensitivePrefix = domPrefix.value.toLowerCase().replace(/ /g, "");
+        const nPrefixLen = nInsensitivePrefix.length;
+        let attempts = 0;
+
+        // Setup workers
+        const nThreads = Math.max(Math.floor(window.navigator.hardwareConcurrency * 0.75), 1);
+        console.log('Spawning ' + nThreads + ' vanity search threads!');
+        while (arrWorkers.length < nThreads) {
+          arrWorkers.push(new Worker("scripts/vanitygen_worker.js"));
+          arrWorkers[arrWorkers.length - 1].onmessage = (event) => checkResult(event.data);
+        }
+
+        // GUI Updater
+        domVanityUiButtonTxt.innerText = 'Stop (Searched ' + attempts.toLocaleString('en-GB') + ' keys)';
+        vanUiUpdater = setInterval(() => {
+            domVanityUiButtonTxt.innerText = 'Stop (Searched ' + attempts.toLocaleString('en-GB') + ' keys)';
+        }, 200);
+
+        function checkResult(data) {
+          attempts++;
+          if (data.pub.substr(0, nPrefixLen).toLowerCase() == nInsensitivePrefix) {
+            importWallet(data.priv, true);
+            stopSearch();
+            domGuiBalance.innerHTML = "0";
+            domGuiBalanceBox.style.fontSize = "x-large";
+            return console.log("VANITY: Found an address after " + attempts + " attempts!");
+          }
+        }
+      }
+    }
+    function toggleDropDown(id) {
+      const domID = document.getElementById(id);
+      domID.style.display = domID.style.display === 'block' ? 'none' : 'block';
+    }
+    function loadUnspendInputs() {
+      if (publicKeyForNetwork) {
+        getUnspentTransactions();
+        domSimpleTXs.style.display = 'block';
+        domGenIt.style.display = 'block';
+      } else {
+        alert("You need a wallet to transact with! Please import a wallet via the 'Dashboard --> Access my wallet' menu");
+      }
+    }
+    function undelegateGUI() {
+      // Verify the amount
+      const nAmount = Number(document.getElementById('undelegateAmount').value);
+      if (nAmount < 0.01) return alert('Minimum amount is 0.01 PIV!');
+      undelegate(nAmount);
+    }
+    function undelegate(value) {
+      if (!publicKeyForNetwork) {
+        if (hasEncryptedWallet())
+          alert("Please unlock your wallet before sending transactions!");
+        else
+          alert("Please import/create your wallet before sending transactions!");
+        return;
+      }
+
+      let nBalance = getStakingBalance() / COIN;
+      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
+      console.log("Constructing TX of value: " + value + " PIV");
+      // Loop our cached UTXOs and construct a TX
+      const cTx = bitjs.transaction();
+      let txValue = 0;
+      for (const UTXO of arrDelegatedUTXOs) {
+        if (txValue > value) {
+          // Required Coin Control value met, yahoo!
+          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
+          break;
+        }
+        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
+        txValue += UTXO.sats / COIN;
+        console.log("Coin Control: Selected CS input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
+      }
+      const nFee = calculatefee(cTx.serialize().length);
+      cTx.addoutput(publicKeyForNetwork, value);
+      addresschange = publicKeyForNetwork;
+      totalSent = (nFee + value).toFixed(8);
+      valuechange = (txValue - parseFloat(totalSent)).toFixed(8);
+      if (totalSent <= nBalance) {
+        domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + publicKeyForNetwork + "<br>Sent: " + value + "<br>Change Address: " + addresschange + "<br>Change: " + valuechange;
+        if (valuechange > 1.01) {
+          // Enough change to resume cold staking, so we'll send the change back to the cold staking address
+          // Ensure the user has an address set - if not, request one!
+          if (!askForCSAddr()) return;
+          // Sanity
+          if (cachedColdStakeAddr.length !== 34 || !cachedColdStakeAddr.startsWith('S')) {
+            askForCSAddr(true);
+            return alert('Now that you\'ve set a Cold Staking address, please re-try your undelegation!');
+          }
+          cTx.addcoldstakingoutput(publicKeyForNetwork, cachedColdStakeAddr, valuechange);
+          console.log('Re-delegated delegation spend change!');
+        } else {
+          // Not enough change to cold stake, so we'll just unstake everything
+          cTx.addoutput(addresschange, valuechange);
+          console.log('Spent all CS dust into redeem address!');
+        }
+        sendTransaction(cTx.sign(privateKeyForTransactions, 1, 'coldstake'), "Delegation successfully spent! Please wait for confirmations.");
+        domGenIt.innerHTML = "Continue";
+      } else {
+        console.warn("Amount: " + value + "\nFee: " + nFee + "\nChange: " + valuechange + "\nTOTAL: " + totalSent);
+        alert('You are trying to undelegate more than you have, don\'t forget blockchain fees! Removing ~0.001 PIV will do fine.');
+      }
+    }
+    function askForCSAddr(force = false) {
+      if (force) cachedColdStakeAddr = null;
+      if (cachedColdStakeAddr === "" || cachedColdStakeAddr === null) {
+        cachedColdStakeAddr = prompt('Please provide a Cold Staking address (either from your own node, or a 3rd-party!)');
+        if (cachedColdStakeAddr) return true;
+      } else {
+        return true;
+      }
+      return false;
+    }
+    function delegateGUI() {
+      // Ensure the user has an address set - if not, request one!
+      if (!askForCSAddr()) return;
+
+      // Verify the amount
+      const nAmount = Number(document.getElementById('delegateAmount').value);
+      if (nAmount < 1) return alert('Minimum Staking amount is 1 PIV!');
+
+      // Sanity
+      if (cachedColdStakeAddr.length !== 34 || !cachedColdStakeAddr.startsWith('S')) {
+        askForCSAddr(true);
+        return alert('Now that you\'ve set a Cold Staking address, please re-try your delegation!');
+      }
+      delegate(nAmount, cachedColdStakeAddr);
+    }
+    function delegate(value, coldAddr) {
+      if (!publicKeyForNetwork) {
+        if (hasEncryptedWallet())
+          alert("Please unlock your wallet before sending transactions!");
+        else
+          alert("Please import/create your wallet before sending transactions!");
+        return;
+      }
+      let nBalance = getBalance() / COIN;
+      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
+      console.log("Constructing TX of value: " + value + " PIV");
+      // Loop our cached UTXOs and construct a TX
+      const cTx = bitjs.transaction();
+      let txValue = 0;
+      for (const UTXO of cachedUTXOs) {
+        if (txValue > value) {
+          // Required Coin Control value met, yahoo!
+          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
+          break;
+        }
+        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
+        txValue += UTXO.sats / COIN;
+        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
+      }
+      const nFee = calculatefee(cTx.serialize().length);
+      cTx.addcoldstakingoutput(publicKeyForNetwork, coldAddr, value);
+      addresschange = publicKeyForNetwork;
+      totalSent = (nFee + parseFloat(value)).toFixed(8);
+      valuechange = (txValue - parseFloat(totalSent)).toFixed(8);
+      if (totalSent <= nBalance) {
+        domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + publicKeyForNetwork + "<br>Sent: " + value + "<br>Change Address: " + addresschange + "<br>Change: " + valuechange;
+        cTx.addoutput(addresschange, valuechange); //Change Address
+        sendTransaction(cTx.sign(privateKeyForTransactions, 1), "Delegation successful, please wait for confirmations, enjoy your staking!");
+        domGenIt.innerHTML = "Continue";
+      } else {
+        console.warn("Amount: " + value + "\nFee: " + nFee + "\nChange: " + valuechange + "\nTOTAL: " + totalSent);
+        alert('You are trying to delegate more than you have, don\'t forget blockchain fees! Removing ~0.001 PIV will do fine.');
+      }
+    }
+
+    function preimage(value, hex) {
+      if (!publicKeyForNetwork) {
+        if (hasEncryptedWallet())
+          alert("Please unlock your wallet before sending transactions!");
+        else
+          alert("Please import/create your wallet before sending transactions!");
+        return;
+      }
+      let nBalance = getBalance() / COIN;
+      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
+      console.log("Constructing TX of value: " + value + " PIV");
+      // Loop our cached UTXOs and construct a TX
+      const cTx = bitjs.transaction();
+      let txValue = 0;
+      for (const UTXO of cachedUTXOs) {
+        if (txValue > value) {
+          // Required Coin Control value met, yahoo!
+          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
+          break;
+        }
+        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
+        txValue += UTXO.sats / COIN;
+        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
+      }
+      const nFee = calculatefee(cTx.serialize().length);
+      cTx.addpreimageoutput(hex, value);
+      addresschange = publicKeyForNetwork;
+      totalSent = (nFee + parseFloat(value)).toFixed(8);
+      valuechange = (txValue - parseFloat(totalSent)).toFixed(8);
+      if (totalSent <= nBalance) {
+        domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + publicKeyForNetwork + "<br>Sent: " + value + "<br>Change Address: " + addresschange + "<br>Change: " + valuechange;
+        cTx.addoutput(addresschange, valuechange); //Change Address
+        sendTransaction(cTx.sign(privateKeyForTransactions, 1));
+        domGenIt.innerHTML = "Continue";
+      } else {
+        console.warn("Amount: " + value + "\nFee: " + nFee + "\nChange: " + valuechange + "\nTOTAL: " + totalSent);
+        domHumanReadable.innerHTML = "You are trying to send more than you have!";
+      }
+    }
+
+    function createSimpleTransation() {
+      if (!networkEnabled) return alert("Cannot create Simple Transactions in offline mode; this requires an explorer to sync your balance (UTXOs), please enable Networking to use this feature! Otherwise, use 'Advanced Transactions'");
+      if (!publicKeyForNetwork) {
+        if (hasEncryptedWallet())
+          alert("Please unlock your wallet before sending transactions!");
+        else
+          alert("Please import/create your wallet before sending transactions!");
+        return;
+      }
+      const address = domAddress1s.value;
+      let value = Number(domValue1s.value);
+      if (domGenIt.innerHTML === 'Continue') {
+        domGenIt.innerHTML = 'Send Transaction';
+        domHumanReadable.innerHTML = "";
+        domValue1s.value = "";
+        domAddress1s.value = "";
+        domReqDesc.value = '';
+        domReqDisplay.style.display = 'none';
+        return;
+      }
+      let nBalance = getBalance() / COIN;
+      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
+      console.log("Constructing TX of value: " + value + " PIV");
+      // Loop our cached UTXOs and construct a TX
+      const cTx = bitjs.transaction();
+      let txValue = 0;
+      for (const UTXO of cachedUTXOs) {
+        if (txValue >= value) {
+          // Required Coin Control value met, yahoo!
+          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
+          break;
+        }
+        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
+        txValue += UTXO.sats / COIN;
+        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
+      }
+
+      const nFee = calculatefee(cTx.serialize().length);
+      const fNoChange = value >= (nBalance - nFee);
+      if (fNoChange) {
+        // We're sending alot! So we've got to deduct the fee from the send amount. There's not enough change to pay it with!
+        value = Number((value - nFee).toFixed(8));
+      }
+
+      if (address != '' && value != '') {
+        cTx.addoutput(address, value); // Sending to this address
+        addresschange = publicKeyForNetwork;
+        totalSent = (nFee + parseFloat(value)).toFixed(8);
+        valuechange = fNoChange ? 0 : (txValue - parseFloat(totalSent)).toFixed(8);
+        if (totalSent <= nBalance) {
+          domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + address + "<br>Sent: " + value + (fNoChange ? "" : "<br>Change Address: " + addresschange + "<br>Change: " + valuechange);
+          if (!fNoChange) {
+            cTx.addoutput(addresschange, valuechange); // Change Output
+          }
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+          sendTransaction(cTx.sign(privateKeyForTransactions, 1));
+          domGenIt.innerHTML = "Continue";
+        } else {
+          console.warn("Amount: " + value + "\nFee: " + nFee + (fNoChange ? "" : "\nChange: " + valuechange) + "\nTOTAL: " + totalSent);
+          domHumanReadable.innerHTML = "You're trying to send more than you have!";
+        }
+      } else {
+        console.log("No address or value");
+      }
+    }
+    function createRawTransaction() {
+      //advanced transaction creation and signing
+      const cTx = bitjs.transaction();
+      const txid = document.getElementById("prevTrxHash").value;
+      const index = document.getElementById("index").value;
+      const script = document.getElementById("script").value;
+      cTx.addinput(txid, index, script);
+      var address = document.getElementById("address1").value;
+      var value = document.getElementById("value1").value;
+      cTx.addoutput(address, value);
+      address = document.getElementById("address2").value;
+      value = document.getElementById("value2").value;
+      cTx.addoutput(address, value);
+      const wif = document.getElementById("wif").value;
+      document.getElementById("rawTrx").value = cTx.sign(wif, 1); //SIGHASH_ALL DEFAULT 1
+    }
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      if (!evt.currentTarget.className.includes("active"))
+        evt.currentTarget.className += " active";
+
+      // Close the navbar if it's not already closed
+      if (!domNavbarToggler.className.includes("collapsed"))
+        domNavbarToggler.click();
+    }
+    domStart.click();
+
+    function refreshChainData() {
+      // If in offline mode: don't sync ANY data or connect to the internet
+      if (!networkEnabled) return console.warn("Offline mode: For your security, the wallet will avoid ALL internet requests in offline mode.");
+
+      // Update identicon
+      domIdenticon.dataset.jdenticonValue = publicKeyForNetwork;
+      console.log(publicKeyForNetwork)
+      jdenticon();
+      // Play reload anim
+      domBalanceReload.className += " playAnim";
+      /*
+      domBalanceReloadStaking.className += " playAnim";
+      */
+      // Fetch block count + UTXOs
+      getBlockCount();
+    }
+
+    window.onload = (() => {
+      // Configure Identicon
+      jdenticon.configure({
+        saturation: {
+          color: 0.8
+        }
+      });
+      // Configure payment processor
+      if (requestTo && requestAmount) {
+        // Open 'Create Transaction' menu
+        domTxTab.click();
+        if (domSimpleTXs.style.display === 'none')
+          domSimpleTXsDropdown.click();
+        // Pre-fill inputs
+        domAddress1s.value = requestTo;
+        domValue1s.value   = requestAmount;
+        // Payment request 'desc' is optional
+        if (urlParams.has('desc')) {
+          domReqDisplay.style.display = 'block';
+          domReqDesc.value = urlParams.get('desc');
+        } else {
+          domReqDesc.value = '';
+          domReqDisplay.style.display = 'none';
+        }
+      }
+    });
+
+    setInterval(refreshChainData, 15000);
+    //domPrefix.value = PUBKEY_PREFIX;
+  </script>
+
+</body>
+
+</html>
+>>>>>>> f265baa19f10df5668298f75b57e3cd3658a6e30

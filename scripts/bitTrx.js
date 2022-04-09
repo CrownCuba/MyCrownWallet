@@ -103,6 +103,7 @@
 			const o = {};
 			let buf = [];
 			const addrDecoded = btrx.addressDecode(address);
+			console.log(addrDecoded.toString() + "jojojojo")
 			o.value = new BigInteger('' + Math.round((value * 1) * 1e8), 10);
 			buf.push(OP['DUP']);
 			buf.push(OP['HASH160']);
@@ -153,11 +154,12 @@
 		// Only standard addresses
 		btrx.addressDecode = function(address) {
 			const bytes = B58.decode(address);
+			console.log(bytes.length+ "rrrrrrrrrrrrrrrrrr")
 			const front = bytes.slice(0, bytes.length-4);
 			const back  = bytes.slice(bytes.length-4);
 			const checksum = Crypto.SHA256(Crypto.SHA256(front, {asBytes: true}), {asBytes: true}).slice(0, 4);
 			if (checksum + "" == back + "") {
-				return front.slice(1);
+				return front.slice(3);
 			}
 		}
 
