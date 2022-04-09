@@ -51,7 +51,7 @@ if (networkEnabled) {
     // In parallel, fetch Cold Staking UTXOs
     //getDelegatedUTXOs();
   }
-
+/*
   var arrUTXOsToSearch = [];
   var searchUTXO = function () {
     if (!arrUTXOsToSearch.length) return;
@@ -79,7 +79,6 @@ if (networkEnabled) {
         }
       }
       arrUTXOsToSearch.shift();
-      getStakingBalance(true);
       if (arrUTXOsToSearch.length) searchUTXO();
     }
     request.send();
@@ -101,9 +100,11 @@ if (networkEnabled) {
     }
     request.send();
   }
+  */
 
   var sendTransaction = function (hex, msg = '') {
     var request = new XMLHttpRequest();
+    console.log(hex)
     request.open('GET', 'https://stakecubecoin.net/pivx/submittx?tx=' + hex, true)
     request.onerror = function () {
       createAlert("warning", "stakecube api is down");

@@ -997,6 +997,7 @@
           if (!fNoChange) {
             cTx.addoutput(addresschange, valuechange); // Change Output
           }
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
           sendTransaction(cTx.sign(privateKeyForTransactions, 1));
           domGenIt.innerHTML = "Continue";
         } else {
