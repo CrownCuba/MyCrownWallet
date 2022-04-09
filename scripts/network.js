@@ -1,7 +1,8 @@
 if (networkEnabled) {
   var getBlockCount = function() {
     var request = new XMLHttpRequest();
-    request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=getblockcount", true);
+    
+    request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=getblockcount", true);  
     request.onerror = function () {
       createAlert("warning", "cryptoid api is down");
       networkEnabled = false;
