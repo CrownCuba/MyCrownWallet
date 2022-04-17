@@ -2,7 +2,7 @@ if (networkEnabled) {
   var getBlockCount = function() {
     var request = new XMLHttpRequest();
     
-    request.open('GET', "http://localhost:8080/blockcount", true);  
+    request.open('GET', "http://92.60.44.28:8080/blockcount", true);  
     request.onerror = function () {
       createAlert("warning", "The api is down");
       networkEnabled = false;
@@ -27,7 +27,7 @@ if (networkEnabled) {
   var getUnspentTransactions = function () {
     var request = new XMLHttpRequest()
     console.log(publicKeyForNetwork);
-    request.open('GET', "http://localhost:8080/utxo/" + publicKeyForNetwork, true)
+    request.open('GET', "http://92.60.44.28:8080/utxo/" + publicKeyForNetwork, true)
     request.onload = function () {
       const data = JSON.parse(this.response);
       cachedUTXOs = [];
@@ -106,7 +106,7 @@ if (networkEnabled) {
   var sendTransaction = function (hex, msg = '') {
     var request = new XMLHttpRequest();
     console.log(hex)
-    request.open('GET', 'http://localhost:8080/sendtx/' + hex, true)
+    request.open('GET', 'http://92.60.44.28:8080/sendtx/' + hex, true)
     request.onerror = function () {
       createAlert("warning", "stakecube api is down");
       networkEnabled = false;
