@@ -152,12 +152,12 @@ importWallet = function (newWif = false, raw = false) {
 
     // Public Key
     const qrPub = qrcode(typeNumber, errorCorrectionLevel);
-    qrPub.addData('pivx:' + publicKeyForNetwork);
+    qrPub.addData('' + publicKeyForNetwork);
     qrPub.make();
     domPublicQr.innerHTML = qrPub.createImgTag();
     domPublicQr.firstChild.style.borderRadius = '8px';
     // Pubkey Modal
-    domModalQrLabel.innerHTML = 'pivx:' + publicKeyForNetwork;
+    domModalQrLabel.innerHTML = '' + publicKeyForNetwork;
     domModalQR.innerHTML = qrPub.createImgTag();
     domModalQR.firstChild.style.width = "100%";
     domModalQR.firstChild.style.height = "auto";
@@ -318,12 +318,12 @@ generateWallet = async function (noUI = false) {
       domPrivateQr.innerHTML = qrPriv.createImgTag();
       domPrivateQr.firstChild.style.borderRadius = '8px';
       const qrPub = qrcode(typeNumber, errorCorrectionLevel);
-      qrPub.addData('pivx:' + publicKeyForNetwork);
+      qrPub.addData('' + publicKeyForNetwork);
       qrPub.make();
       domPublicQr.innerHTML = qrPub.createImgTag();
       domPublicQr.style.display = 'block';
       domPublicQr.firstChild.style.borderRadius = '8px';
-      domModalQrLabel.innerHTML = 'pivx:' + publicKeyForNetwork;
+      domModalQrLabel.innerHTML = '' + publicKeyForNetwork;
       domModalQR.innerHTML = qrPub.createImgTag();
       domModalQR.firstChild.style.width = "100%";
       domModalQR.firstChild.style.height = "auto";

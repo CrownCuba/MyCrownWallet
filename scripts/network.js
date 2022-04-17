@@ -4,7 +4,7 @@ if (networkEnabled) {
     
     request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=getblockcount", true);  
     request.onerror = function () {
-      createAlert("warning", "cryptoid api is down");
+      createAlert("warning", "The api is down");
       networkEnabled = false;
       document.getElementById('Network').innerHTML = "";
     }
