@@ -2,7 +2,7 @@ if (networkEnabled) {
   var getBlockCount = function() {
     var request = new XMLHttpRequest();
     
-    request.open('GET', "https://chainz.cryptoid.info/crw/api.dws?q=getblockcount", true);  
+    request.open('GET', "https://127.0.0.1:8080/blockcount", true);  
     request.onerror = function () {
       createAlert("warning", "cryptoid api is down");
       networkEnabled = false;
@@ -134,7 +134,7 @@ if (networkEnabled) {
 
   var calculatefee = function (bytes) {
     // TEMPORARY: Hardcoded fee per-byte
-    return (bytes * 50) / COIN; // 50 sat/byte
+    return (bytes * 200) / COIN; // 200 sat/byte
   }
 
   document.getElementById('Network').innerHTML = "<b> Network:</b> Enabled";

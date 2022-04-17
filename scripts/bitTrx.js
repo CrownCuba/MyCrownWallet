@@ -93,6 +93,8 @@
 
 		btrx.addinput = function(txid, index, script, sequence) {
 			const o = {};
+			console.log("hash: "+ txid)
+			console.log("script: "+ script)
 			o.outpoint = {'hash': txid, 'index': index};
 			o.script = Crypto.util.hexToBytes(script); //push previous output pubkey script
 			o.sequence = sequence || ((btrx.locktime==0) ? 4294967295 : 0);
@@ -357,33 +359,24 @@
 		};
 
     	/* sign a "standard" input */
-		btrx.signinput = function(index, wif, sigHashType, txType = 'pubkey') {
+		btrx.signinput = function(index, wif, sigHashType) {
 			const key = bitjs.wif2pubkey(wif);
 			const shType = sigHashType || 1;
+			const signature = this.transactionSig(index, wif, shType);
 			var buf = [];
-			if (txType !== 'preimage') {
-				const signature = this.transactionSig(index, wif, shType);
-				const sigBytes = Crypto.util.hexToBytes(signature);
-				buf.push(sigBytes.length);
-				buf = buf.concat(sigBytes);
-				if (txType === 'coldstake') {
-					// OP_FALSE to flag the redeeming of the delegation back to the Owner Address
-					buf.push(OP['FALSE']);
-				}
-				const pubkeyBytes = Crypto.util.hexToBytes(key['pubkey']);
-				buf.push(pubkeyBytes.length);
-				buf = buf.concat(pubkeyBytes);
-			} else {
-				const preimage = Crypto.util.hexToBytes(wif);
-				buf.push(preimage.length);
-				buf = buf.concat(preimage);
-			}
+			const sigBytes = Crypto.util.hexToBytes(signature);
+			buf.push(sigBytes.length);
+			buf = buf.concat(sigBytes);
+	        const pubkeyBytes = Crypto.util.hexToBytes(key['pubkey']);
+			buf.push(pubkeyBytes.length);
+			buf = buf.concat(pubkeyBytes);
 			this.inputs[index].script = buf;
 			return true;
 		}
 
 		/* sign inputs */
 		btrx.sign = function(wif, sigHashType, txType) {
+			console.log("WIF: " + wif)
 			const shType = sigHashType || 1;
 			let i;
 			const len = this.inputs.length;

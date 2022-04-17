@@ -925,6 +925,7 @@
         }
         cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
         txValue += UTXO.sats / COIN;
+        
         console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
       }
       const nFee = calculatefee(cTx.serialize().length);
@@ -976,6 +977,7 @@
           break;
         }
         cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
+        console.log("aaaaaaaaaaaaaaaaaa " + UTXO.vout);
         txValue += UTXO.sats / COIN;
         console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
       }
@@ -997,7 +999,7 @@
           if (!fNoChange) {
             cTx.addoutput(addresschange, valuechange); // Change Output
           }
-          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+
           sendTransaction(cTx.sign(privateKeyForTransactions, 1));
           domGenIt.innerHTML = "Continue";
         } else {
