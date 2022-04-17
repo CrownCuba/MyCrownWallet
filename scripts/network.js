@@ -49,59 +49,7 @@ if (networkEnabled) {
       }
     }
     request.send();
-    // In parallel, fetch Cold Staking UTXOs
-    //getDelegatedUTXOs();
   }
-/*
-  var arrUTXOsToSearch = [];
-  var searchUTXO = function () {
-    if (!arrUTXOsToSearch.length) return;
-    var request = new XMLHttpRequest()
-    request.open('GET', "https://stakecubecoin.net/pivx/api/tx-specific/" + arrUTXOsToSearch[0].txid, true);
-    request.onerror = function () {
-      createAlert("warning", "stakecube api is down");
-      networkEnabled = false;
-      document.getElementById('Network').innerHTML = "";
-    }
-    request.onload = function () {
-      const data = JSON.parse(this.response);
-      // Check the UTXOs
-      for (const cVout of data.vout) {
-        if (cVout.spent) continue;
-        if (cVout.scriptPubKey.type === 'coldstake' && cVout.scriptPubKey.addresses.includes(publicKeyForNetwork)) {
-          if (!arrDelegatedUTXOs.find(a => a.id === data.txid && a.vout === cVout.n)) {
-            arrDelegatedUTXOs.push({
-              'id': data.txid,
-              'vout': cVout.n,
-              'sats': Number(cVout.value * COIN),
-              'script': cVout.scriptPubKey.hex
-            });
-          }
-        }
-      }
-      arrUTXOsToSearch.shift();
-      if (arrUTXOsToSearch.length) searchUTXO();
-    }
-    request.send();
-  }
-
-  var getDelegatedUTXOs = function () {
-    if (arrUTXOsToSearch.length) return;
-    var request = new XMLHttpRequest()
-    request.open('GET', "https://stakecubecoin.net/pivx/api/utxo/" + publicKeyForNetwork, true);
-    request.onerror = function () {
-      createAlert("warning", "stakecube api is down");
-      networkEnabled = false;
-      document.getElementById('Network').innerHTML = "";
-    }
-    request.onload = function () {
-      arrUTXOsToSearch = JSON.parse(this.response);
-      arrDelegatedUTXOs = [];
-      searchUTXO();
-    }
-    request.send();
-  }
-  */
 
   var sendTransaction = function (hex, msg = '') {
     var request = new XMLHttpRequest();
