@@ -977,7 +977,8 @@
           break;
         }
         cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
-        console.log("aaaaaaaaaaaaaaaaaa " + UTXO.vout);
+        console.log("script " + UTXO.script);
+        console.log("txid " + UTXO.id);
         txValue += UTXO.sats / COIN;
         console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
       }
