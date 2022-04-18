@@ -57,7 +57,7 @@ var from_b58 = function (
 }
 
 if (debug) document.getElementById('Debug').innerHTML = "<b> DEBUG MODE </b>";
-document.getElementById('dcfooter').innerHTML = '© MIT 2022 - Built by CrownCuba devs community - <b style=\'cursor:pointer\' onclick=\'openDonatePage()\'>Donate!</b><br><a href="https://github.com/CrownCuba/MyPIVXWallet">MyCrownWallet</a>';
+document.getElementById('dcfooter').innerHTML = '© MIT 2022 - Built by CrownCuba devs community - <b style=\'cursor:pointer\' onclick=\'openDonatePage()\'>Donate!</b><br><a href="https://github.com/CrownCuba/MyCrownWallet">MyCrownWallet</a>';
 // Wallet Import
 importWallet = function (newWif = false, raw = false) {
   if (walletAlreadyMade != 0) {

@@ -1,3 +1,5 @@
+//On development
+
 /* chainparams */
 const PUBKEY_ADDRESS = 30;
 const SECRET_KEY     = 212;
