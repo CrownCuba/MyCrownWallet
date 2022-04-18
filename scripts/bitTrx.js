@@ -93,8 +93,6 @@
 
 		btrx.addinput = function(txid, index, script, sequence) {
 			const o = {};
-			console.log("hash: "+ txid)
-			console.log("script: "+ script)
 			o.outpoint = {'hash': txid, 'index': index};
 			o.script = Crypto.util.hexToBytes(script); //push previous output pubkey script
 			o.sequence = sequence || ((btrx.locktime==0) ? 4294967295 : 0);
@@ -105,7 +103,6 @@
 			const o = {};
 			let buf = [];
 			const addrDecoded = btrx.addressDecode(address);
-			console.log(addrDecoded.toString() + "jojojojo")
 			o.value = new BigInteger('' + Math.round((value * 1) * 1e8), 10);
 			buf.push(OP['DUP']);
 			buf.push(OP['HASH160']);
@@ -116,7 +113,7 @@
 			o.script = buf;
 			return this.outputs.push(o);
 		}
-
+/*
 		btrx.addpreimageoutput = function(preimage, value) {
 			const o = {};
 			let buf = [];
@@ -152,11 +149,11 @@
 			o.script = buf;
 			return this.outputs.push(o);
 		}
+*/
 
 		// Only standard addresses
 		btrx.addressDecode = function(address) {
 			const bytes = B58.decode(address);
-			console.log(bytes.length+ "rrrrrrrrrrrrrrrrrr")
 			const front = bytes.slice(0, bytes.length-4);
 			const back  = bytes.slice(bytes.length-4);
 			const checksum = Crypto.SHA256(Crypto.SHA256(front, {asBytes: true}), {asBytes: true}).slice(0, 4);
@@ -376,7 +373,6 @@
 
 		/* sign inputs */
 		btrx.sign = function(wif, sigHashType, txType) {
-			console.log("WIF: " + wif)
 			const shType = sigHashType || 1;
 			let i;
 			const len = this.inputs.length;

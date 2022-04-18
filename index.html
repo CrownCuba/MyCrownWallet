@@ -10,32 +10,14 @@
   <!-- Primary Meta Tags -->
   <title>My Crown Wallet</title>
   <meta name="title" content="My Crown Wallet">
-  <meta name="description" content="The wallet of the future - Receive, Send, Stake and Exchange using a completely decentralized, open-source, battle-hardened Crown wallet.">
-  <meta name="keywords" content="web,wallet,webwallet,crypto,cryptocurrency,opensource,oss,pivx,staking,masternodes,exchange,swap,decentralized">
+  <meta name="description" content="The wallet of the future - Receive nad Send using a completely decentralized, open-source, battle-hardened Crown wallet.">
+  <meta name="keywords" content="web,wallet,webwallet,crypto,cryptocurrency,opensource,masternodes,exchange,swap,decentralized">
 
   <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:url" content="https://stakecubecoin.net/pivx/">
-  <meta property="og:title" content="My Crown Wallet">
-  <meta property="og:description" content="The wallet of the future - Receive, Send, Stake and Exchange using a completely decentralized, open-source, battle-hardened Crown wallet.">
-  <meta property="og:image" content="https://stakecubecoin.net/pivx/assets/logo_opaque-dark-bg.png">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://stakecubecoin.net/pivx/">
-  <meta property="twitter:title" content="My Crown Wallet">
-  <meta property="twitter:description" content="The wallet of the future - Receive, Send, Stake and Exchange using a completely decentralized, open-source, battle-hardened Crown wallet.">
-  <meta property="twitter:image" content="https://stakecubecoin.net/pivx/assets/logo_opaque-dark-bg.png">
 
   <!-- Colour Theme -->
   <meta name="msapplication-TileColor" content="#470e75">
   <meta name="theme-color" content="#470e75">
-
-  <link rel="icon" type="image/png" href="https://stakecubecoin.net/assets/logo_opaque-dark-bg.png">
-  <link rel="canonical" href="https://stakecubecoin.net/pivx">
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -490,14 +472,10 @@
     // Cached DOM elements
     const domStart = document.getElementById("start");
     const domNavbarToggler = document.getElementById("navbarToggler");
-    const domGuiStaking = document.getElementById('guiStaking');
     const domGuiWallet = document.getElementById('guiWallet');
     const domGuiBalance = document.getElementById("guiBalance");
     const domGuiBalanceBox = document.getElementById("guiBalanceBox");
     const domBalanceReload = document.getElementById("balanceReload");
-    const domBalanceReloadStaking = document.getElementById("balanceReloadStaking");
-    const domGuiBalanceStaking = document.getElementById("guiBalanceStaking");
-    const domGuiBalanceBoxStaking = document.getElementById("guiBalanceBoxStaking");
     const domTxTab = document.getElementById("txTab");
     const domSimpleTXs = document.getElementById("simpleTransactions");
     const domSimpleTXsDropdown = document.getElementById("simpleTransactionsDropdown");
@@ -535,25 +513,10 @@
         // Set the balance, and adjust font-size for large balance strings
         const nLen = (nBalance / COIN).toString().length;
         domGuiBalance.innerText = (nBalance / COIN);
-        //domAvailToDelegate.innerText = "Available: ~" + (nBalance / COIN).toFixed(2) + " PIV";
       }
 
       return nBalance;
     }
-
-    function getStakingBalance(updateGUI = false) {
-      const nBalance = arrDelegatedUTXOs.reduce((a, b) => a + b.sats, 0);
-
-      if (updateGUI) {
-        // Set the balance, and adjust font-size for large balance strings
-        domGuiBalanceStaking.innerText = Math.floor(nBalance / COIN);
-        domGuiBalanceBoxStaking.style.fontSize = Math.floor(nBalance / COIN).toString().length >= 4 ? "large" : "x-large";
-        domAvailToUndelegate.innerText = "Staking: ~" + (nBalance / COIN).toFixed(2) + " PIV";
-      }
-
-      return nBalance;
-    }
-
     // URL-Query request processing
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
@@ -775,172 +738,6 @@
         alert("You need a wallet to transact with! Please import a wallet via the 'Dashboard --> Access my wallet' menu");
       }
     }
-    function undelegateGUI() {
-      // Verify the amount
-      const nAmount = Number(document.getElementById('undelegateAmount').value);
-      if (nAmount < 0.01) return alert('Minimum amount is 0.01 PIV!');
-      undelegate(nAmount);
-    }
-    function undelegate(value) {
-      if (!publicKeyForNetwork) {
-        if (hasEncryptedWallet())
-          alert("Please unlock your wallet before sending transactions!");
-        else
-          alert("Please import/create your wallet before sending transactions!");
-        return;
-      }
-
-      let nBalance = getStakingBalance() / COIN;
-      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
-      console.log("Constructing TX of value: " + value + " PIV");
-      // Loop our cached UTXOs and construct a TX
-      const cTx = bitjs.transaction();
-      let txValue = 0;
-      for (const UTXO of arrDelegatedUTXOs) {
-        if (txValue > value) {
-          // Required Coin Control value met, yahoo!
-          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
-          break;
-        }
-        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
-        txValue += UTXO.sats / COIN;
-        console.log("Coin Control: Selected CS input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
-      }
-      const nFee = calculatefee(cTx.serialize().length);
-      cTx.addoutput(publicKeyForNetwork, value);
-      addresschange = publicKeyForNetwork;
-      totalSent = (nFee + value).toFixed(8);
-      valuechange = (txValue - parseFloat(totalSent)).toFixed(8);
-      if (totalSent <= nBalance) {
-        domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + publicKeyForNetwork + "<br>Sent: " + value + "<br>Change Address: " + addresschange + "<br>Change: " + valuechange;
-        if (valuechange > 1.01) {
-          // Enough change to resume cold staking, so we'll send the change back to the cold staking address
-          // Ensure the user has an address set - if not, request one!
-          if (!askForCSAddr()) return;
-          // Sanity
-          if (cachedColdStakeAddr.length !== 34 || !cachedColdStakeAddr.startsWith('S')) {
-            askForCSAddr(true);
-            return alert('Now that you\'ve set a Cold Staking address, please re-try your undelegation!');
-          }
-          cTx.addcoldstakingoutput(publicKeyForNetwork, cachedColdStakeAddr, valuechange);
-          console.log('Re-delegated delegation spend change!');
-        } else {
-          // Not enough change to cold stake, so we'll just unstake everything
-          cTx.addoutput(addresschange, valuechange);
-          console.log('Spent all CS dust into redeem address!');
-        }
-        sendTransaction(cTx.sign(privateKeyForTransactions, 1, 'coldstake'), "Delegation successfully spent! Please wait for confirmations.");
-        domGenIt.innerHTML = "Continue";
-      } else {
-        console.warn("Amount: " + value + "\nFee: " + nFee + "\nChange: " + valuechange + "\nTOTAL: " + totalSent);
-        alert('You are trying to undelegate more than you have, don\'t forget blockchain fees! Removing ~0.001 PIV will do fine.');
-      }
-    }
-    function askForCSAddr(force = false) {
-      if (force) cachedColdStakeAddr = null;
-      if (cachedColdStakeAddr === "" || cachedColdStakeAddr === null) {
-        cachedColdStakeAddr = prompt('Please provide a Cold Staking address (either from your own node, or a 3rd-party!)');
-        if (cachedColdStakeAddr) return true;
-      } else {
-        return true;
-      }
-      return false;
-    }
-    function delegateGUI() {
-      // Ensure the user has an address set - if not, request one!
-      if (!askForCSAddr()) return;
-
-      // Verify the amount
-      const nAmount = Number(document.getElementById('delegateAmount').value);
-      if (nAmount < 1) return alert('Minimum Staking amount is 1 PIV!');
-
-      // Sanity
-      if (cachedColdStakeAddr.length !== 34 || !cachedColdStakeAddr.startsWith('S')) {
-        askForCSAddr(true);
-        return alert('Now that you\'ve set a Cold Staking address, please re-try your delegation!');
-      }
-      delegate(nAmount, cachedColdStakeAddr);
-    }
-    function delegate(value, coldAddr) {
-      if (!publicKeyForNetwork) {
-        if (hasEncryptedWallet())
-          alert("Please unlock your wallet before sending transactions!");
-        else
-          alert("Please import/create your wallet before sending transactions!");
-        return;
-      }
-      let nBalance = getBalance() / COIN;
-      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
-      console.log("Constructing TX of value: " + value + " PIV");
-      // Loop our cached UTXOs and construct a TX
-      const cTx = bitjs.transaction();
-      let txValue = 0;
-      for (const UTXO of cachedUTXOs) {
-        if (txValue > value) {
-          // Required Coin Control value met, yahoo!
-          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
-          break;
-        }
-        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
-        txValue += UTXO.sats / COIN;
-        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
-      }
-      const nFee = calculatefee(cTx.serialize().length);
-      cTx.addcoldstakingoutput(publicKeyForNetwork, coldAddr, value);
-      addresschange = publicKeyForNetwork;
-      totalSent = (nFee + parseFloat(value)).toFixed(8);
-      valuechange = (txValue - parseFloat(totalSent)).toFixed(8);
-      if (totalSent <= nBalance) {
-        domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + publicKeyForNetwork + "<br>Sent: " + value + "<br>Change Address: " + addresschange + "<br>Change: " + valuechange;
-        cTx.addoutput(addresschange, valuechange); //Change Address
-        sendTransaction(cTx.sign(privateKeyForTransactions, 1), "Delegation successful, please wait for confirmations, enjoy your staking!");
-        domGenIt.innerHTML = "Continue";
-      } else {
-        console.warn("Amount: " + value + "\nFee: " + nFee + "\nChange: " + valuechange + "\nTOTAL: " + totalSent);
-        alert('You are trying to delegate more than you have, don\'t forget blockchain fees! Removing ~0.001 PIV will do fine.');
-      }
-    }
-
-    function preimage(value, hex) {
-      if (!publicKeyForNetwork) {
-        if (hasEncryptedWallet())
-          alert("Please unlock your wallet before sending transactions!");
-        else
-          alert("Please import/create your wallet before sending transactions!");
-        return;
-      }
-      let nBalance = getBalance() / COIN;
-      if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
-      console.log("Constructing TX of value: " + value + " PIV");
-      // Loop our cached UTXOs and construct a TX
-      const cTx = bitjs.transaction();
-      let txValue = 0;
-      for (const UTXO of cachedUTXOs) {
-        if (txValue > value) {
-          // Required Coin Control value met, yahoo!
-          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
-          break;
-        }
-        cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
-        txValue += UTXO.sats / COIN;
-        
-        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
-      }
-      const nFee = calculatefee(cTx.serialize().length);
-      cTx.addpreimageoutput(hex, value);
-      addresschange = publicKeyForNetwork;
-      totalSent = (nFee + parseFloat(value)).toFixed(8);
-      valuechange = (txValue - parseFloat(totalSent)).toFixed(8);
-      if (totalSent <= nBalance) {
-        domHumanReadable.innerHTML = "Balance: " + nBalance.toFixed(8) + "<br>Fee: " + nFee + "<br>To: " + publicKeyForNetwork + "<br>Sent: " + value + "<br>Change Address: " + addresschange + "<br>Change: " + valuechange;
-        cTx.addoutput(addresschange, valuechange); //Change Address
-        sendTransaction(cTx.sign(privateKeyForTransactions, 1));
-        domGenIt.innerHTML = "Continue";
-      } else {
-        console.warn("Amount: " + value + "\nFee: " + nFee + "\nChange: " + valuechange + "\nTOTAL: " + totalSent);
-        domHumanReadable.innerHTML = "You are trying to send more than you have!";
-      }
-    }
 
     function createSimpleTransation() {
       if (!networkEnabled) return alert("Cannot create Simple Transactions in offline mode; this requires an explorer to sync your balance (UTXOs), please enable Networking to use this feature! Otherwise, use 'Advanced Transactions'");
@@ -964,21 +761,19 @@
       }
       let nBalance = getBalance() / COIN;
       if (value > nBalance) return alert("Balance is too small! (" + nBalance + " - " + value + " = " + (nBalance - value).toFixed(8) + ")");
-      console.log("Constructing TX of value: " + value + " PIV");
+      console.log("Constructing TX of value: " + value + " CRW");
       // Loop our cached UTXOs and construct a TX
       const cTx = bitjs.transaction();
       let txValue = 0;
       for (const UTXO of cachedUTXOs) {
         if (txValue >= value) {
           // Required Coin Control value met, yahoo!
-          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " PIV)");
+          console.log("Coin Control: TX Constructed! Selected " + cTx.inputs.length + " input(s) (" + txValue + " CRW)");
           break;
         }
         cTx.addinput(UTXO.id, UTXO.vout, UTXO.script);
-        console.log("script " + UTXO.script);
-        console.log("txid " + UTXO.id);
         txValue += UTXO.sats / COIN;
-        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " PIV - Total: " + txValue + ")");
+        console.log("Coin Control: Selected input " + UTXO.id.substr(0, 6) + "(" + UTXO.vout + ")... (Added " + (UTXO.sats / COIN).toFixed(8) + " CRW - Total: " + txValue + ")");
       }
 
       const nFee = calculatefee(cTx.serialize().length);
@@ -1051,13 +846,9 @@
 
       // Update identicon
       domIdenticon.dataset.jdenticonValue = publicKeyForNetwork;
-      console.log(publicKeyForNetwork)
       jdenticon();
       // Play reload anim
       domBalanceReload.className += " playAnim";
-      /*
-      domBalanceReloadStaking.className += " playAnim";
-      */
       // Fetch block count + UTXOs
       getBlockCount();
     }

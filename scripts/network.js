@@ -21,12 +21,10 @@ if (networkEnabled) {
       cachedBlockCount = data;
     }
     request.send();
-    console.log(request.response)
   }
 
   var getUnspentTransactions = function () {
     var request = new XMLHttpRequest()
-    console.log(publicKeyForNetwork);
     request.open('GET', "http://92.60.44.28:8080/utxo/" + publicKeyForNetwork, true)
     request.onload = function () {
       const data = JSON.parse(this.response);
@@ -44,7 +42,7 @@ if (networkEnabled) {
           'script': cUTXO.script
         }));
         // Update the GUI with the newly cached UTXO set
-        console.log(getBalance(true));
+        getBalance(true);
         
       }
     }
@@ -53,7 +51,6 @@ if (networkEnabled) {
 
   var sendTransaction = function (hex, msg = '') {
     var request = new XMLHttpRequest();
-    console.log(hex)
     request.open('GET', 'http://92.60.44.28:8080/sendtx/' + hex, true)
     request.onerror = function () {
       createAlert("warning", "stakecube api is down");
@@ -67,7 +64,7 @@ if (networkEnabled) {
         if (domAddress1s.value !== donationAddress)
           document.getElementById("transactionFinal").innerHTML = ('<h4 style="color:green">Transaction sent! ' + data + '</h4>');
         else
-          document.getElementById("transactionFinal").innerHTML = ('<h4 style="color:green">Thank you for supporting MyPIVXWallet! 💜💜💜<br>' + data + '</h4>');
+          document.getElementById("transactionFinal").innerHTML = ('<h4 style="color:green">Thank you for supporting My Crown Wallet!<br>' + data + '</h4>');
         domSimpleTXs.style.display = 'none';
         domAddress1s.value = '';
         domValue1s.innerHTML = '';
