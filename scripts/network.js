@@ -119,14 +119,14 @@ if (networkEnabled) {
         if (domAddress1s.value !== donationAddress)
           document.getElementById("transactionFinal").innerHTML = ('<h4 style="color:green">Transaction sent! ' + data + '</h4>');
         else
-          document.getElementById("transactionFinal").innerHTML = ('<h4 style="color:green">Thank you for supporting MyPIVXWallet! 💜💜💜<br>' + data + '</h4>');
+          document.getElementById("transactionFinal").innerHTML = ('<h4 style="word-wrap:break-word;color:green">Thank you for supporting MyCrownWallet! <br>' + data + '</h4>');
         domSimpleTXs.style.display = 'none';
         domAddress1s.value = '';
         domValue1s.innerHTML = '';
         if (msg) alert(msg);
       } else {
         console.log('Error sending transaction: ' + data);
-        document.getElementById("transactionFinal").innerHTML = ('<h4 style="color:red">Error sending transaction: ' + data + "</h4>");
+        document.getElementById("transactionFinal").innerHTML = ('<h4 style="word-wrap:break-word;color:red">Error sending transaction: ' + data + "</h4>");
       }
     }
     request.send();
