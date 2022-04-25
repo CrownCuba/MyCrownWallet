@@ -53,7 +53,7 @@
       <!-- NAVBAR -->
       <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbarSpecial">
         <div class="container">
-          <img onclick="playMusic()" class="nav-logo navbar-brand noselect" src='assets/logo.png' alt="Crown" style="object-fit:contain;
+          <img class="nav-logo navbar-brand noselect" src='assets/logo.png' alt="Crown" style="object-fit:contain;
                                   width:8%;
                                   height:8%;">
           <button id="navbarToggler" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -512,7 +512,7 @@
       if (updateGUI) {
         // Set the balance, and adjust font-size for large balance strings
         const nLen = (nBalance / COIN).toString().length;
-        domGuiBalance.innerText = (nBalance / COIN);
+        domGuiBalance.innerText = (nBalance / COIN).toFixed(2);
       }
 
       return nBalance;
@@ -530,6 +530,7 @@
       // We have our payment request info, wait until the page is fully loaded then display the payment request via .onload
     }
 
+    /*
     let audio = null;
     function playMusic() {
       if (audio === null) {
@@ -549,6 +550,7 @@
         stopDisco();
       }
     }
+    */
 
     function startDisco() {
       for (const domImg of document.getElementsByTagName('img')) {
