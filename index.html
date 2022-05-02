@@ -512,7 +512,7 @@
       if (updateGUI) {
         // Set the balance, and adjust font-size for large balance strings
         const nLen = (nBalance / COIN).toString().length;
-        domGuiBalance.innerText = (nBalance / COIN).toFixed(2);
+        domGuiBalance.innerText = (nBalance / COIN).toFixed(4);
       }
 
       return nBalance;
